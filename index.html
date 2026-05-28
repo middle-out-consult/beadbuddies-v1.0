@@ -23,6 +23,10 @@
       --gold: #fce181;
       --mint: #bdebd7;
       --sky: #bfe6ff;
+      --coral: #ffb08f;
+      --aqua: #94eadf;
+      --lime: #c9f576;
+      --grape: #9f77df;
       --white: #ffffff;
       --shadow: 0 22px 60px rgba(93, 59, 77, 0.16);
       --shadow-soft: 0 14px 34px rgba(93, 59, 77, 0.12);
@@ -44,9 +48,11 @@
     body {
       margin: 0;
       background:
+        linear-gradient(120deg, rgba(252, 225, 129, 0.34) 0 12%, transparent 12% 100%),
+        linear-gradient(240deg, rgba(148, 234, 223, 0.26) 0 14%, transparent 14% 100%),
         radial-gradient(circle at 12% 10%, rgba(252, 225, 129, 0.45), transparent 24rem),
         radial-gradient(circle at 90% 4%, rgba(212, 193, 236, 0.65), transparent 22rem),
-        linear-gradient(180deg, var(--cream) 0%, #ffffff 48%, var(--cream) 100%);
+        linear-gradient(180deg, var(--cream) 0%, #ffffff 45%, #fff7d6 73%, var(--cream) 100%);
       color: var(--charcoal);
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
@@ -303,6 +309,10 @@
       align-items: center;
     }
 
+    .hero-grid > * {
+      min-width: 0;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -361,10 +371,11 @@
       margin: 1.2rem 0 0;
       color: var(--muted);
       font-size: clamp(1.03rem, 3.9vw, 1.25rem);
+      overflow-wrap: break-word;
     }
 
     .hero-copy strong,
-    .notice strong {
+    .terms-board strong {
       color: var(--charcoal);
       font-weight: 900;
     }
@@ -394,6 +405,11 @@
       color: var(--muted);
       font-size: 0.92rem;
       font-weight: 800;
+      overflow-wrap: break-word;
+    }
+
+    .hero-note-text {
+      min-width: 0;
     }
 
     .hero-note-dot {
@@ -404,203 +420,176 @@
       box-shadow: 0 0 0 5px rgba(32, 201, 151, 0.14);
     }
 
-    .hero-card {
+    .hero-media {
       position: relative;
-      min-height: 410px;
-      border: 2px solid rgba(44, 37, 39, 0.84);
-      border-radius: clamp(1.4rem, 6vw, 2.2rem);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 244, 0.94)),
-        repeating-linear-gradient(90deg, transparent 0 28px, rgba(241, 161, 180, 0.12) 29px 30px),
-        repeating-linear-gradient(0deg, transparent 0 28px, rgba(212, 193, 236, 0.12) 29px 30px);
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-    }
-
-    .hero-card::before,
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      border: 2px solid rgba(44, 37, 39, 0.78);
-      box-shadow: 0 10px 22px rgba(93, 59, 77, 0.11);
-    }
-
-    .hero-card::before {
-      inset: 16px 18px auto auto;
-      width: 70px;
-      height: 46px;
-      border-radius: 17px;
-      background: linear-gradient(135deg, var(--gold), #fff4bd);
-      transform: rotate(8deg);
-    }
-
-    .hero-card::after {
-      left: 20px;
-      bottom: 22px;
-      width: 92px;
-      height: 64px;
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, rgba(44, 37, 39, 0.12) 1px, transparent 1px) 0 0 / 18px 100%,
-        linear-gradient(135deg, #ffffff, var(--sky));
-      transform: rotate(-8deg);
-    }
-
-    .product-art {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      border-radius: inherit;
-    }
-
-    .product-art::before {
-      content: "";
-      position: absolute;
-      inset: 8%;
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 24% 22%, rgba(255, 255, 255, 0.9), transparent 9%),
-        radial-gradient(circle at 80% 20%, rgba(252, 225, 129, 0.48), transparent 20%),
-        linear-gradient(150deg, rgba(255, 255, 255, 0.66), rgba(212, 193, 236, 0.2));
-      border: 1px solid rgba(44, 37, 39, 0.08);
-    }
-
-    .product-label {
-      position: absolute;
-      left: 50%;
-      top: 42%;
-      z-index: 2;
-      width: min(78%, 320px);
-      min-height: 104px;
+      min-height: clamp(620px, 76vw, 740px);
       display: grid;
       place-items: center;
-      border: 2px solid rgba(44, 37, 39, 0.82);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 16px 32px rgba(93, 59, 77, 0.16);
-      transform: translate(-50%, -50%) rotate(-4deg);
-    }
-
-    .product-label span {
-      display: block;
-      font-family: "Fredoka", "Inter", sans-serif;
-      font-size: clamp(1.65rem, 9vw, 3.15rem);
-      font-weight: 700;
-      line-height: 0.92;
-      text-align: center;
-    }
-
-    .product-label small {
-      display: block;
-      margin-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .bead {
-      position: absolute;
-      z-index: 1;
-      width: var(--size, 54px);
-      height: var(--size, 54px);
-      border: 2px solid rgba(44, 37, 39, 0.72);
-      border-radius: 999px;
+      padding: clamp(1.3rem, 4vw, 2.4rem);
+      border-radius: clamp(1.6rem, 5vw, 2.4rem);
       background:
-        radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.9) 0 13%, transparent 14%),
-        radial-gradient(circle at 50% 50%, var(--hole, rgba(44, 37, 39, 0.22)) 0 12%, transparent 13%),
-        var(--fill, var(--pink));
-      box-shadow: 0 12px 24px rgba(93, 59, 77, 0.15);
+        linear-gradient(90deg, rgba(44, 37, 39, 0.07) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(44, 37, 39, 0.07) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 226, 236, 0.86) 48%, rgba(225, 247, 255, 0.78));
+      background-size: 34px 34px, 34px 34px, auto;
+      isolation: isolate;
     }
 
-    .bead.one {
-      --size: 66px;
-      --fill: linear-gradient(135deg, var(--pink), #ffc8d5);
-      left: 9%;
-      top: 12%;
-    }
-
-    .bead.two {
-      --size: 78px;
-      --fill: linear-gradient(135deg, var(--lilac), #f1e9ff);
-      right: 17%;
-      top: 24%;
-    }
-
-    .bead.three {
-      --size: 58px;
-      --fill: linear-gradient(135deg, var(--gold), #fff4bd);
-      left: 21%;
-      bottom: 25%;
-    }
-
-    .bead.four {
-      --size: 44px;
-      --fill: linear-gradient(135deg, var(--mint), #e4fff3);
-      right: 10%;
-      bottom: 25%;
-    }
-
-    .bead.five {
-      --size: 50px;
-      --fill: linear-gradient(135deg, var(--sky), #e3f5ff);
-      right: 28%;
-      bottom: 9%;
-    }
-
-    .pen {
-      position: absolute;
-      z-index: 1;
-      width: 58px;
-      height: 230px;
-      border: 2px solid rgba(44, 37, 39, 0.72);
-      border-radius: 999px;
-      background:
-        linear-gradient(180deg, #ffffff 0 10%, var(--pink) 10% 24%, var(--lilac) 24% 39%, var(--gold) 39% 54%, var(--mint) 54% 69%, #ffffff 69% 100%);
-      box-shadow: 0 18px 34px rgba(93, 59, 77, 0.14);
-    }
-
-    .pen::before {
+    .hero-media::before {
       content: "";
       position: absolute;
+      inset: 12%;
+      z-index: -1;
+      border: 3px dashed rgba(44, 37, 39, 0.12);
+      border-radius: 42% 58% 45% 55%;
+      background:
+        linear-gradient(135deg, rgba(252, 225, 129, 0.42), rgba(189, 235, 215, 0.36)),
+        rgba(255, 255, 255, 0.54);
+      transform: rotate(-5deg);
+    }
+
+    .hero-video-card {
+      position: relative;
+      z-index: 2;
+      width: min(68vw, 328px);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border: 3px solid rgba(44, 37, 39, 0.9);
+      border-radius: 34px;
+      background: #120f12;
+      box-shadow: var(--shadow);
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-video-card::before,
+    .hero-video-card::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .hero-video-card::before {
+      inset: 0;
+      border: 10px solid rgba(255, 255, 255, 0.5);
+      border-radius: 31px;
+    }
+
+    .hero-video-card::after {
       left: 50%;
-      bottom: -34px;
-      width: 20px;
-      height: 42px;
-      border: 2px solid rgba(44, 37, 39, 0.72);
-      border-top: 0;
-      border-radius: 0 0 999px 999px;
-      background: #8f8a91;
+      bottom: 0.8rem;
+      width: 46%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
       transform: translateX(-50%);
     }
 
-    .pen.one {
-      left: 7%;
-      top: 25%;
-      transform: rotate(-18deg);
+    .hero-video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .pen.two {
-      right: 6%;
-      top: 36%;
-      transform: rotate(14deg);
-    }
-
-    .focal {
+    .video-sticker {
       position: absolute;
+      left: 50%;
+      top: -1.1rem;
+      z-index: 4;
+      min-width: 190px;
+      border: 3px solid rgba(44, 37, 39, 0.88);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), #fff4b8);
+      padding: 0.52rem 0.9rem;
+      font-family: "Fredoka", "Inter", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 8px 0 rgba(44, 37, 39, 0.13);
+      transform: translateX(-50%) rotate(2deg);
+    }
+
+    .hero-goodies {
+      position: absolute;
+      inset: 0;
       z-index: 1;
-      right: 33%;
-      top: 10%;
-      width: 78px;
-      height: 78px;
-      border: 2px solid rgba(44, 37, 39, 0.76);
-      border-radius: 28px 999px 999px 999px;
+      pointer-events: none;
+    }
+
+    .hero-goodie-card {
+      position: absolute;
+      width: clamp(116px, 17vw, 158px);
+      overflow: hidden;
+      border: 3px solid rgba(44, 37, 39, 0.86);
+      border-radius: 24px;
+      background: var(--goodie-bg, var(--white));
+      box-shadow: 0 18px 32px rgba(93, 59, 77, 0.17);
+      transform: rotate(var(--tilt, -5deg));
+    }
+
+    .hero-goodie-card img {
+      width: 100%;
+      aspect-ratio: 0.76;
+      object-fit: cover;
       background:
-        radial-gradient(circle at 38% 36%, rgba(255, 255, 255, 0.9) 0 13%, transparent 14%),
-        linear-gradient(135deg, #ffb4ca, #d4c1ec);
-      box-shadow: 0 16px 28px rgba(93, 59, 77, 0.16);
-      transform: rotate(28deg);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 240, 244, 0.84)),
+        var(--goodie-bg, var(--white));
+    }
+
+    .hero-goodie-card span {
+      display: block;
+      padding: 0.46rem 0.55rem 0.54rem;
+      color: var(--charcoal);
+      font-size: 0.73rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .hero-goodie-card.one {
+      --tilt: -8deg;
+      --goodie-bg: #ffe1ea;
+      left: 0;
+      top: 8%;
+    }
+
+    .hero-goodie-card.two {
+      --tilt: 7deg;
+      --goodie-bg: #dff8ff;
+      right: 0;
+      top: 12%;
+    }
+
+    .hero-goodie-card.three {
+      --tilt: 6deg;
+      --goodie-bg: #fff0b6;
+      left: 3%;
+      bottom: 10%;
+    }
+
+    .hero-goodie-card.four {
+      --tilt: -7deg;
+      --goodie-bg: #dff9c5;
+      right: 2%;
+      bottom: 6%;
+    }
+
+    .hero-floating-label {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.9rem;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 2px solid rgba(44, 37, 39, 0.82);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 0.48rem 0.72rem;
+      color: var(--charcoal);
+      font-size: 0.78rem;
+      font-weight: 900;
+      box-shadow: 0 7px 0 rgba(44, 37, 39, 0.11);
     }
 
     .star {
@@ -638,35 +627,47 @@
 
     .showcase-section {
       padding-top: clamp(2.2rem, 6vw, 4.5rem);
+      background:
+        linear-gradient(135deg, rgba(255, 240, 244, 0.92), rgba(245, 236, 255, 0.9) 52%, rgba(229, 255, 244, 0.86)),
+        linear-gradient(90deg, rgba(44, 37, 39, 0.06) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(44, 37, 39, 0.06) 1px, transparent 1px);
+      background-size: auto, 32px 32px, 32px 32px;
+      border-top: 1px solid rgba(44, 37, 39, 0.08);
+      border-bottom: 1px solid rgba(44, 37, 39, 0.08);
     }
 
     .showcase-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(0.75rem, 2.8vw, 1.15rem);
+      gap: clamp(0.85rem, 2.8vw, 1.25rem);
       align-items: stretch;
     }
 
     .showcase-card {
       position: relative;
       overflow: hidden;
-      min-height: clamp(250px, 58vw, 420px);
+      min-height: clamp(238px, 58vw, 390px);
       border: 2px solid rgba(44, 37, 39, 0.82);
       border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.84);
+      background: var(--card-bg, rgba(255, 255, 255, 0.84));
       box-shadow: var(--shadow-soft);
       transform: rotate(var(--tilt, -1deg));
+    }
+
+    .showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent 56%, rgba(44, 37, 39, 0.18)),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%);
     }
 
     .showcase-card:nth-child(even) {
       --tilt: 1.4deg;
       margin-top: clamp(1rem, 4vw, 2.2rem);
-    }
-
-    .showcase-card.video-card {
-      grid-column: 1 / -1;
-      min-height: clamp(430px, 112vw, 640px);
-      background: #120f12;
     }
 
     .photo-stage {
@@ -685,16 +686,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .photo-stage video {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: #120f12;
     }
 
     .fallback-art {
@@ -886,7 +877,7 @@
 
     .step-card,
     .payment-card,
-    .notice {
+    .terms-board {
       border: 1px solid rgba(44, 37, 39, 0.09);
       background: rgba(255, 255, 255, 0.82);
       box-shadow: var(--shadow-soft);
@@ -1009,40 +1000,77 @@
       margin-bottom: 1.35rem;
     }
 
-    .notice {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0.9rem;
-      align-items: start;
-      margin-top: 1.2rem;
-      border-radius: var(--radius-md);
-      padding: clamp(1rem, 4vw, 1.3rem);
+    .terms-board {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1.25rem;
+      border: 3px solid rgba(44, 37, 39, 0.86);
+      border-radius: clamp(1.35rem, 5vw, 2rem);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 232, 240, 0.94) 44%, rgba(235, 247, 255, 0.94)),
+        repeating-linear-gradient(-45deg, rgba(241, 161, 180, 0.16) 0 10px, rgba(252, 225, 129, 0.18) 10px 20px);
+      padding: clamp(1.05rem, 4vw, 1.55rem);
     }
 
-    .notice-icon {
-      width: 42px;
-      height: 42px;
+    .terms-board::before {
+      content: "Terms";
+      position: absolute;
+      right: -1.2rem;
+      top: 0.8rem;
+      border: 3px solid rgba(44, 37, 39, 0.86);
+      border-radius: 999px;
+      background: var(--lime);
+      padding: 0.42rem 1.5rem;
+      color: var(--charcoal);
+      font-family: "Fredoka", "Inter", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: 0 7px 0 rgba(44, 37, 39, 0.12);
+      transform: rotate(11deg);
+    }
+
+    .terms-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: center;
+      max-width: 44rem;
+    }
+
+    .terms-icon {
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
       border: 2px solid rgba(44, 37, 39, 0.82);
-      border-radius: 15px;
-      background: var(--gold);
-      box-shadow: 0 6px 0 rgba(44, 37, 39, 0.11);
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--gold), #fff3ad);
+      box-shadow: 0 8px 0 rgba(44, 37, 39, 0.11);
       font-family: "Fredoka", "Inter", sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
+      transform: rotate(-5deg);
     }
 
-    .notice p {
+    .terms-title {
       margin: 0;
+      font-family: "Fredoka", "Inter", sans-serif;
+      font-size: clamp(1.55rem, 5vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .terms-intro {
+      margin: 0.28rem 0 0;
       color: var(--muted);
       font-size: 0.96rem;
     }
 
     .terms-list {
       display: grid;
-      gap: 0.45rem;
-      margin: 0.65rem 0 0;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin: 1rem 0 0;
       padding: 0;
       list-style: none;
       color: var(--muted);
@@ -1051,16 +1079,46 @@
 
     .terms-list li {
       position: relative;
-      padding-left: 1.15rem;
+      min-height: 88px;
+      border: 2px solid rgba(44, 37, 39, 0.78);
+      border-radius: 20px;
+      background: var(--term-bg, rgba(255, 255, 255, 0.78));
+      padding: 0.9rem 0.95rem 0.9rem 4.05rem;
+      box-shadow: 0 8px 0 rgba(44, 37, 39, 0.09);
+    }
+
+    .terms-list li:nth-child(1) {
+      --term-bg: #ffe1ea;
+    }
+
+    .terms-list li:nth-child(2) {
+      --term-bg: #fff2b9;
+    }
+
+    .terms-list li:nth-child(3) {
+      --term-bg: #e8ddff;
+    }
+
+    .terms-list li:nth-child(4) {
+      --term-bg: #dcf8ef;
     }
 
     .terms-list li::before {
-      content: "♥";
+      content: attr(data-icon);
       position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--pink-strong);
-      font-size: 0.82rem;
+      left: 0.8rem;
+      top: 0.85rem;
+      width: 44px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(44, 37, 39, 0.8);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--charcoal);
+      font-size: 0.84rem;
+      font-weight: 900;
+      box-shadow: 0 5px 0 rgba(44, 37, 39, 0.08);
     }
 
     .site-footer {
@@ -1148,17 +1206,16 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
-      .showcase-card.video-card {
-        grid-column: span 2;
-        min-height: 520px;
-      }
-
       .steps-grid,
       .payment-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .payment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .terms-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1176,11 +1233,11 @@
 
     @media (min-width: 920px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.82fr);
+        grid-template-columns: minmax(0, 0.9fr) minmax(430px, 1fr);
       }
 
-      .hero-card {
-        min-height: 520px;
+      .hero-media {
+        min-height: 700px;
       }
 
       .step-card {
@@ -1188,9 +1245,10 @@
       }
     }
 
-    @media (max-width: 430px) {
+    @media (max-width: 640px) {
       .nav {
-        align-items: flex-start;
+        min-height: auto;
+        align-items: center;
       }
 
       .brand {
@@ -1201,28 +1259,79 @@
         width: 168px;
       }
 
+      .nav-actions {
+        gap: 0.45rem;
+      }
+
       .nav-actions .button {
         min-height: 46px;
-        max-width: 128px;
+        max-width: 148px;
         padding: 0.65rem 0.72rem;
         font-size: 0.78rem;
       }
 
-      .nav-actions .live-badge {
+      .nav-actions .live-badge,
+      .nav-actions .pill {
         display: none;
       }
 
-      .hero-card {
-        min-height: 360px;
+      h1 {
+        font-size: clamp(2.85rem, 13vw, 4.35rem);
       }
 
-      .pen {
-        width: 48px;
-        height: 194px;
+      .hero-note {
+        max-width: 100%;
+        flex-wrap: wrap;
       }
 
-      .notice {
+      .hero-media {
+        min-height: auto;
+        padding: 0.9rem;
+      }
+
+      .hero-media::before {
+        inset: 7%;
+      }
+
+      .hero-video-card {
+        width: min(86vw, 310px);
+      }
+
+      .hero-goodies {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.72rem;
+        width: 100%;
+        margin-top: 1rem;
+        pointer-events: auto;
+      }
+
+      .hero-goodie-card {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        transform: rotate(var(--tilt, -2deg));
+      }
+
+      .hero-goodie-card img {
+        aspect-ratio: 0.9;
+      }
+
+      .hero-floating-label {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        justify-self: center;
+        margin-top: 0.75rem;
+      }
+
+      .terms-header {
         grid-template-columns: 1fr;
+      }
+
+      .terms-board::before {
+        display: none;
       }
     }
 
@@ -1306,28 +1415,39 @@
                   Pay $14 Deposit
                 </a>
               </div>
-              <span class="hero-note"><span class="live-badge" data-live-badge>Check TikTok</span> Claims happen live at @beadbuddies8</span>
+              <span class="hero-note"><span class="live-badge" data-live-badge>Check TikTok</span><span class="hero-note-text">Claims happen live at @beadbuddies8</span></span>
             </div>
           </div>
 
-          <figure class="hero-card" aria-label="A colourful display of acrylic focal beads, pastel beads, beaded pens, sparkles, and boutique craft packaging">
-            <div class="product-art" aria-hidden="true">
-              <span class="star one"></span>
-              <span class="star two"></span>
-              <span class="star three"></span>
-              <span class="pen one"></span>
-              <span class="pen two"></span>
-              <span class="bead one"></span>
-              <span class="bead two"></span>
-              <span class="bead three"></span>
-              <span class="bead four"></span>
-              <span class="bead five"></span>
-              <span class="focal"></span>
-              <span class="product-label">
-                <span>Live Sale<br>Goodies</span>
-                <small>Beads · Focals · Pens</small>
-              </span>
+          <figure class="hero-media" aria-label="A Bead Buddies live sale preview video surrounded by examples of beaded pens and acrylic charms">
+            <span class="star one" aria-hidden="true"></span>
+            <span class="star two" aria-hidden="true"></span>
+            <span class="star three" aria-hidden="true"></span>
+            <div class="hero-video-card">
+              <span class="video-sticker">Live Sale Goodies</span>
+              <video src="assets/live-sale-preview.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A short Bead Buddies live sale product preview video">
+                Your browser does not support this video. Join us on TikTok to see the live sale previews.
+              </video>
             </div>
+            <div class="hero-goodies" aria-hidden="true">
+              <div class="hero-goodie-card one">
+                <img src="assets/kawaii-character-pen.svg" alt="">
+                <span>Kawaii pens</span>
+              </div>
+              <div class="hero-goodie-card two">
+                <img src="assets/pastel-acrylic-pen.svg" alt="">
+                <span>Pastel stacks</span>
+              </div>
+              <div class="hero-goodie-card three">
+                <img src="assets/pink-flower-charm.svg" alt="">
+                <span>Flower charms</span>
+              </div>
+              <div class="hero-goodie-card four">
+                <img src="assets/green-pearl-charm.svg" alt="">
+                <span>Pearl focals</span>
+              </div>
+            </div>
+            <span class="hero-floating-label"><span class="sparkle" aria-hidden="true"></span> Fresh drops, claimed live</span>
           </figure>
         </div>
       </section>
@@ -1336,21 +1456,12 @@
         <div class="container">
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Tiny treasures, big personality</span>
-            <h2 id="lookbook-title">A little live-sale sparkle wall</h2>
-            <p>Focals, pens, charms, and glossy pastel bits that feel right at home in a Bead Buddies live basket.</p>
+            <h2 id="lookbook-title">What pops up on the live</h2>
+            <p>A tiny feature wall of the beads, pens, charms, and glossy pastel bits you might spot in a Bead Buddies basket.</p>
           </div>
 
           <div class="showcase-grid">
-            <figure class="showcase-card video-card" style="--tilt: -1.1deg;">
-              <div class="photo-stage">
-                <video src="assets/live-sale-preview.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="A short Bead Buddies live sale product preview video">
-                  Your browser does not support this video. Join us on TikTok to see the live sale previews.
-                </video>
-              </div>
-              <figcaption class="showcase-caption">Live-sale preview<small>Tap play for a quick peek at the Bead Buddies vibe</small></figcaption>
-            </figure>
-
-            <figure class="showcase-card" style="--tilt: -2deg;">
+            <figure class="showcase-card" style="--tilt: -2deg; --card-bg: #ffe1ea;">
               <div class="photo-stage">
                 <img src="assets/kawaii-character-pen.svg" alt="A pastel character beaded pen with a glossy acrylic focal topper" loading="lazy">
                 <div class="fallback-art art-kitty" aria-hidden="true">
@@ -1360,7 +1471,7 @@
               <figcaption class="showcase-caption">Kawaii pen builds<small>Character focals, soft pinks, glossy details</small></figcaption>
             </figure>
 
-            <figure class="showcase-card" style="--tilt: 1.8deg;">
+            <figure class="showcase-card" style="--tilt: 1.8deg; --card-bg: #e8ddff;">
               <div class="photo-stage">
                 <img src="assets/pastel-acrylic-pen.svg" alt="A pastel beaded pen with acrylic focals, a flower bead, and pink textured beads" loading="lazy">
                 <div class="fallback-art art-bunny" aria-hidden="true">
@@ -1370,7 +1481,7 @@
               <figcaption class="showcase-caption">Pastel pen stacks<small>Acrylic focals, bows, flowers, and texture</small></figcaption>
             </figure>
 
-            <figure class="showcase-card" style="--tilt: -1.2deg;">
+            <figure class="showcase-card" style="--tilt: -1.2deg; --card-bg: #fff2b9;">
               <div class="photo-stage">
                 <img src="assets/pink-flower-charm.svg" alt="A pink chain charm with a sparkly flower focal and dangling silver accents" loading="lazy">
                 <div class="fallback-art art-pink" aria-hidden="true">
@@ -1380,7 +1491,7 @@
               <figcaption class="showcase-caption">Statement charms<small>Bright chains, gemmy flowers, dangly extras</small></figcaption>
             </figure>
 
-            <figure class="showcase-card" style="--tilt: 2.1deg;">
+            <figure class="showcase-card" style="--tilt: 2.1deg; --card-bg: #dcf8ef;">
               <div class="photo-stage">
                 <img src="assets/green-pearl-charm.svg" alt="A green chain charm with pearl details, rhinestones, and a floral centrepiece" loading="lazy">
                 <div class="fallback-art art-green" aria-hidden="true">
@@ -1479,15 +1590,20 @@
             </article>
           </div>
 
-          <aside class="notice" aria-label="Live sale terms">
-            <div class="notice-icon" aria-hidden="true">!</div>
+          <aside class="terms-board" aria-label="Live sale terms and conditions">
+            <div class="terms-header">
+              <div class="terms-icon" aria-hidden="true">!</div>
+              <div>
+                <p class="terms-title">Terms & Conditions</p>
+                <p class="terms-intro">Cute baskets, clear rules: here is the live-sale checkout rhythm.</p>
+              </div>
+            </div>
             <div>
-              <p><strong>Terms at a glance:</strong> these are the live-sale rules from Bead Buddies.</p>
               <ul class="terms-list">
-                <li><strong>$14 deposit</strong> applies if you have never shopped with us, payable only once, and is non-refundable.</li>
-                <li><strong>$14 flat postage</strong> is payable at checkout for Australia-wide shipping.</li>
-                <li><strong>$200 basket cap</strong> applies to live sale claims.</li>
-                <li><strong>Invoices are due within 3 days.</strong> You get one reminder; if payment is not made in full, you may be blocked. Need more time? Chat to us.</li>
+                <li data-icon="$14"><strong>Deposit:</strong> if you have never shopped with Bead Buddies, the $14 deposit is payable once and is non-refundable.</li>
+                <li data-icon="AU"><strong>Postage:</strong> flat-rate $14 postage is payable at checkout, with shipping strictly Australia-wide.</li>
+                <li data-icon="$200"><strong>Basket cap:</strong> live-sale baskets are not permitted to go past $200 total.</li>
+                <li data-icon="3d"><strong>Invoices:</strong> pay in full within 3 days. You get one reminder; unpaid baskets return to live stock and you may be blocked. Need more time? Chat to us.</li>
               </ul>
             </div>
           </aside>
