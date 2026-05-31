@@ -625,6 +625,121 @@
       color: #dfb600;
     }
 
+    .story-section {
+      padding-top: clamp(2rem, 6vw, 4.5rem);
+      background:
+        radial-gradient(circle at 14% 24%, rgba(252, 225, 129, 0.42), transparent 15rem),
+        radial-gradient(circle at 86% 26%, rgba(148, 234, 223, 0.36), transparent 15rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 240, 244, 0.62) 54%, rgba(255, 255, 255, 0));
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      border: 3px solid rgba(44, 37, 39, 0.86);
+      border-radius: clamp(1.4rem, 5vw, 2.15rem);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 229, 238, 0.9) 52%, rgba(237, 249, 255, 0.9)),
+        repeating-linear-gradient(0deg, rgba(44, 37, 39, 0.04) 0 1px, transparent 1px 34px),
+        repeating-linear-gradient(90deg, rgba(44, 37, 39, 0.035) 0 1px, transparent 1px 34px);
+      box-shadow: var(--shadow);
+      padding: clamp(1.15rem, 4vw, 2rem);
+      isolation: isolate;
+    }
+
+    .story-card::before {
+      content: "";
+      position: absolute;
+      inset: 1rem auto auto 1rem;
+      width: clamp(96px, 16vw, 150px);
+      aspect-ratio: 1;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 50% 12%, var(--gold) 0 10%, transparent 11%),
+        radial-gradient(circle at 84% 28%, var(--sky) 0 10%, transparent 11%),
+        radial-gradient(circle at 88% 68%, var(--pink) 0 10%, transparent 11%),
+        radial-gradient(circle at 50% 90%, var(--lilac) 0 10%, transparent 11%),
+        radial-gradient(circle at 12% 68%, var(--mint) 0 10%, transparent 11%),
+        radial-gradient(circle at 16% 28%, var(--coral) 0 10%, transparent 11%);
+      opacity: 0.78;
+      transform: rotate(-14deg);
+      z-index: 0;
+    }
+
+    .story-card::after {
+      content: "share the sparkle";
+      position: absolute;
+      right: -1rem;
+      top: 1rem;
+      border: 3px solid rgba(44, 37, 39, 0.86);
+      border-radius: 999px;
+      background: var(--lime);
+      padding: 0.42rem 1.2rem;
+      color: var(--charcoal);
+      font-family: "Fredoka", "Inter", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 7px 0 rgba(44, 37, 39, 0.12);
+      transform: rotate(8deg);
+      z-index: 2;
+    }
+
+    .story-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(1.2rem, 4vw, 2rem);
+      align-items: start;
+    }
+
+    .story-heading {
+      max-width: 11ch;
+    }
+
+    .story-heading-wrap .eyebrow {
+      margin-bottom: 0.95rem;
+    }
+
+    .story-lead {
+      max-width: 21rem;
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .story-copy {
+      display: grid;
+      gap: 0.95rem;
+      border: 2px dashed rgba(44, 37, 39, 0.18);
+      border-radius: clamp(1.1rem, 4vw, 1.65rem);
+      background: rgba(255, 255, 255, 0.68);
+      padding: clamp(1rem, 4vw, 1.45rem);
+      color: var(--muted);
+      font-size: clamp(1rem, 2.7vw, 1.08rem);
+      line-height: 1.75;
+    }
+
+    .story-copy p {
+      margin: 0;
+    }
+
+    .story-copy strong {
+      color: var(--charcoal);
+      font-weight: 900;
+    }
+
+    .story-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .story-cta-row .button {
+      width: 100%;
+    }
+
     .showcase-section {
       padding-top: clamp(2.2rem, 6vw, 4.5rem);
       background:
@@ -1199,6 +1314,16 @@
       .hero-actions .button {
         min-width: 238px;
       }
+
+      .story-cta-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .story-cta-row .button {
+        width: auto;
+        min-width: 190px;
+      }
     }
 
     @media (min-width: 760px) {
@@ -1217,6 +1342,10 @@
 
       .terms-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .story-layout {
+        grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
       }
 
       .footer-grid {
@@ -1331,6 +1460,10 @@
       }
 
       .terms-board::before {
+        display: none;
+      }
+
+      .story-card::after {
         display: none;
       }
     }
@@ -1449,6 +1582,43 @@
             </div>
             <span class="hero-floating-label"><span class="sparkle" aria-hidden="true"></span> Fresh drops, claimed live</span>
           </figure>
+        </div>
+      </section>
+
+      <section class="section story-section" id="our-story" aria-labelledby="story-title">
+        <div class="container">
+          <article class="story-card">
+            <div class="story-layout">
+              <div class="story-heading-wrap">
+                <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> From a tiny spark to Bead Buddies</span>
+                <h2 class="story-heading" id="story-title">How Bead Buddies began</h2>
+                <p class="story-lead">A little founder note for every crafter, collector, live-sale shopper, and bead lover who has helped this dream grow.</p>
+                <div class="story-cta-row" aria-label="Story section actions">
+                  <a class="button button-pink" href="https://www.tiktok.com/@beadbuddies8" target="_blank" rel="noopener noreferrer" aria-label="Open Bead Buddies on TikTok">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M15 10l4.5-2.5v9L15 14"></path>
+                      <rect x="3" y="6" width="12" height="12" rx="3"></rect>
+                    </svg>
+                    Follow on TikTok
+                  </a>
+                  <a class="button button-lilac" href="#lookbook" aria-label="Jump to Bead Buddies live sale goodies">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M12 3l2.6 5.3L20.5 9l-4.3 4.2 1 5.8-5.2-2.8L6.8 19l1-5.8L3.5 9l5.9-.7L12 3Z"></path>
+                    </svg>
+                    See the Goodies
+                  </a>
+                </div>
+              </div>
+
+              <div class="story-copy">
+                <p>People often ask why I love beads so much. The truth is, it all started when I decided to try a new craft. I quickly discovered that I wasn't exactly the crafty type, but I absolutely fell in love with the beads themselves! From the colours and shapes to the endless variety, I was hooked.</p>
+                <p>That little spark of an idea eventually grew into Bead Buddies. It took a lot longer than expected to get off the ground, but I'm so excited that it's finally here.</p>
+                <p><strong>Bead Buddies is more than just a bead business—it's a community for people who love creating, collecting, and sharing their passion for crafting.</strong> I'd love your support as I continue to grow this little dream.</p>
+                <p>Please share my small bead business with your friends, family, and crafting family. Every share, like, follow, and purchase means the world to me.</p>
+                <p>Welcome to Bead Buddies, and I can't wait to see you on TikTok Live!</p>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -1616,7 +1786,7 @@
         <div class="footer-grid">
           <div>
             <div class="footer-brand">Bead Buddies</div>
-            <p class="footer-copy">Australian TikTok Live sales for custom beads, acrylic focals, beaded pens, and colourful crafty treats.</p>
+            <p class="footer-copy">Australian TikTok Live sales and a growing bead-loving community for creating, collecting, and sharing colourful crafty treats.</p>
           </div>
           <div>
             <div class="footer-links" aria-label="Social links">
