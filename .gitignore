@@ -1,0 +1,4 @@
+.wrangler/
+.deploy-pages/
+.codex-qa/
+.live-secret.json
