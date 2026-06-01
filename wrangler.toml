@@ -8,3 +8,7 @@ binding = "BEAD_BUDDIES_STATE"
 id = "d7f1f409b0dd46f68117378569245a93"
 
 [env.production]
+
+[[env.production.kv_namespaces]]
+binding = "BEAD_BUDDIES_STATE"
+id = "d7f1f409b0dd46f68117378569245a93"
