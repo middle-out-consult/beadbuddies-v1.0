@@ -794,7 +794,7 @@
       z-index: 3;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 56%, rgba(44, 37, 39, 0.18)),
+        radial-gradient(circle at 24% 16%, rgba(255, 255, 255, 0.42), transparent 24%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%);
     }
 
@@ -981,27 +981,6 @@
       --charm-core: #d4ecc1;
       --charm-accent: #c9f3b2;
       --charm-bg: #f1e9ff;
-    }
-
-    .showcase-caption {
-      position: absolute;
-      left: 0.8rem;
-      right: 0.8rem;
-      bottom: 0.8rem;
-      z-index: 4;
-      border: 1px solid rgba(44, 37, 39, 0.08);
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78)),
-        linear-gradient(135deg, var(--pop-soft, rgba(241, 161, 180, 0.22)), rgba(252, 225, 129, 0.22));
-      backdrop-filter: blur(12px);
-      padding: 0.74rem 0.75rem;
-      color: var(--charcoal);
-      font-size: clamp(0.96rem, 3vw, 1.16rem);
-      font-weight: 900;
-      line-height: 1.15;
-      text-align: center;
-      box-shadow: 0 8px 0 rgba(44, 37, 39, 0.08);
     }
 
     .section-header {
@@ -1499,18 +1478,6 @@
         margin-top: 0.75rem;
       }
 
-      .showcase-caption {
-        left: 0.25rem;
-        right: 0.25rem;
-        bottom: 0.55rem;
-        padding: 0.56rem 0.34rem;
-        font-size: clamp(0.72rem, 3vw, 0.84rem);
-        hyphens: none;
-        overflow-wrap: normal;
-        text-wrap: balance;
-        word-break: normal;
-      }
-
       .terms-header {
         grid-template-columns: 1fr;
       }
@@ -1704,7 +1671,6 @@
                   <span class="art-pen"></span>
                 </div>
               </div>
-              <figcaption class="showcase-caption">Kawaii pen builds</figcaption>
             </figure>
 
             <figure class="showcase-card" style="--tilt: 1.8deg; --card-bg: #e8ddff; --pop: #9f77df; --pop-soft: rgba(159, 119, 223, 0.23); --glow: rgba(159, 119, 223, 0.25);">
@@ -1714,7 +1680,6 @@
                   <span class="art-pen"></span>
                 </div>
               </div>
-              <figcaption class="showcase-caption">Pastel pen stacks</figcaption>
             </figure>
 
             <figure class="showcase-card" style="--tilt: -1.2deg; --card-bg: #fff2b9; --pop: #ff9f6e; --pop-soft: rgba(255, 159, 110, 0.24); --glow: rgba(255, 159, 110, 0.26);">
@@ -1724,7 +1689,6 @@
                   <span class="art-charm"></span>
                 </div>
               </div>
-              <figcaption class="showcase-caption">Statement charms</figcaption>
             </figure>
 
             <figure class="showcase-card" style="--tilt: 2.1deg; --card-bg: #dcf8ef; --pop: #62bf3d; --pop-soft: rgba(98, 191, 61, 0.22); --glow: rgba(98, 191, 61, 0.24);">
@@ -1734,7 +1698,6 @@
                   <span class="art-charm"></span>
                 </div>
               </div>
-              <figcaption class="showcase-caption">Pearl pop focals</figcaption>
             </figure>
           </div>
         </div>
