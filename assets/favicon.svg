@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Bead Buddies</title>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="112" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9FA"/>
+      <stop offset="0.46" stop-color="#F1A1B4"/>
+      <stop offset="1" stop-color="#D4C1EC"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#5D3B4D" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="34" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="8" fill="#FCE181" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="58" cy="23" r="8" fill="#BFE6FF" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="84" cy="32" r="8" fill="#D4C1EC" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="103" cy="54" r="8" fill="#FCE181" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="96" cy="82" r="8" fill="#BDEBD7" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="68" cy="102" r="8" fill="#FFF0F4" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="39" cy="92" r="8" fill="#F1A1B4" stroke="#8A3F64" stroke-width="5"/>
+  <circle cx="22" cy="62" r="8" fill="#FFF9FA" stroke="#8A3F64" stroke-width="5"/>
+  <text x="64" y="75" text-anchor="middle" filter="url(#shadow)" fill="#2C2527" font-family="Fredoka, Quicksand, Arial Rounded MT Bold, Arial, sans-serif" font-size="38" font-weight="900">BB</text>
+</svg>
