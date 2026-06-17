@@ -36,7 +36,7 @@
       },
       "sameAs": [
         "https://www.tiktok.com/@beadbuddies8",
-        "https://www.instagram.com/beadbuddies8/"
+        "https://www.instagram.com/bead.buddies4/"
       ],
       "paymentAccepted": "Square",
       "currenciesAccepted": "AUD"
@@ -45,9 +45,10 @@
   <script>
     window.SITE_CONFIG = {
       tiktokUrl: "https://www.tiktok.com/@beadbuddies8",
-      instagramUrl: "https://www.instagram.com/beadbuddies8/",
+      instagramUrl: "https://www.instagram.com/bead.buddies4/",
       depositUrl: "https://square.link/u/egRTioGV",
       invoiceUrl: "https://square.link/u/p8mzgLtx",
+      postageAmount: 14,
       isLiveDefault: false,
       shippingText: "Australia-only shipping with a flat $14 postage fee payable at checkout.",
       invoiceWindowText: "Invoices are payable in full within 3 days. Unpaid baskets return to live stock after the payment window.",
@@ -1163,6 +1164,105 @@
       margin-bottom: 1.35rem;
     }
 
+    .invoice-calculator {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.85rem;
+      margin: 0 0 1.1rem;
+      border: 2px dashed rgba(44, 37, 39, 0.22);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 94% 8%, rgba(252, 225, 129, 0.42), transparent 32%),
+        linear-gradient(135deg, rgba(255, 249, 250, 0.95), rgba(245, 236, 255, 0.92));
+      padding: 0.95rem;
+    }
+
+    .calculator-label {
+      display: grid;
+      gap: 0.35rem;
+      color: var(--charcoal);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .money-input {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      border: 2px solid rgba(44, 37, 39, 0.84);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 7px 0 rgba(44, 37, 39, 0.08);
+      overflow: hidden;
+    }
+
+    .money-prefix {
+      display: grid;
+      place-items: center;
+      align-self: stretch;
+      min-width: 48px;
+      border-right: 2px solid rgba(44, 37, 39, 0.14);
+      background: rgba(252, 225, 129, 0.5);
+      font-weight: 900;
+    }
+
+    .money-input input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      color: var(--charcoal);
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 0.7rem 0.85rem;
+      outline: 0;
+    }
+
+    .money-input:focus-within {
+      border-color: var(--pink-strong);
+      box-shadow: 0 7px 0 rgba(231, 111, 149, 0.18), 0 0 0 4px rgba(241, 161, 180, 0.2);
+    }
+
+    .calculator-summary {
+      display: grid;
+      gap: 0.38rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .calculator-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .calculator-row strong {
+      color: var(--charcoal);
+      font-size: 1.12rem;
+      font-weight: 900;
+    }
+
+    .calculator-status {
+      min-height: 1.25rem;
+      margin: -0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .calculator-status.is-success {
+      color: #247a5b;
+    }
+
+    .calculator-status.is-warning {
+      color: #9a4f14;
+    }
+
     .terms-board {
       position: relative;
       overflow: hidden;
@@ -1607,14 +1707,14 @@
                   </svg>
                   Pay $14 Deposit
                 </a>
-                <a class="button button-lilac" href="https://square.link/u/p8mzgLtx" data-config-url="invoiceUrl" target="_blank" rel="noopener noreferrer" aria-label="Settle your live sale invoice balance through Square">
+                <a class="button button-lilac" href="#payments" aria-label="Jump to the invoice total calculator">
                   <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
                     <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
                     <path d="M11 11h5"></path>
                     <path d="M11 15h3"></path>
                   </svg>
-                  Settle Invoice Balance
+                  Calculate Invoice Total
                 </a>
               </div>
               <span class="hero-note"><span class="live-badge" data-live-badge>Check TikTok</span><span class="hero-note-text">Claims happen live at @beadbuddies8</span></span>
@@ -1812,16 +1912,40 @@
             <article class="payment-card" style="--accent: rgba(212, 193, 236, 0.38);">
               <span class="price-chip">Final Custom Total</span>
               <h3>Settle Your Invoice Balance</h3>
-              <p>Ready to check out completely? Pay your custom invoice in full within 3 days, with the flat-rate $14 postage payable at checkout.</p>
-              <a class="button button-lilac" href="https://square.link/u/p8mzgLtx" data-config-url="invoiceUrl" target="_blank" rel="noopener noreferrer" aria-label="Settle your live sale invoice balance through Square">
+              <p>Ready to check out completely? Add the flat <strong>$14 postage</strong> to your confirmed live-sale total, copy the amount, then paste it into Square.</p>
+              <div class="invoice-calculator" data-invoice-calculator>
+                <label class="calculator-label" for="invoice-subtotal">
+                  Your confirmed order total
+                  <span class="money-input">
+                    <span class="money-prefix" aria-hidden="true">$</span>
+                    <input id="invoice-subtotal" data-invoice-subtotal type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                  </span>
+                </label>
+                <dl class="calculator-summary" aria-live="polite">
+                  <div class="calculator-row">
+                    <dt>Order total</dt>
+                    <dd data-invoice-subtotal-output>$0.00</dd>
+                  </div>
+                  <div class="calculator-row">
+                    <dt>Flat postage</dt>
+                    <dd data-invoice-postage-output>$14.00</dd>
+                  </div>
+                  <div class="calculator-row">
+                    <dt>Amount to pay</dt>
+                    <dd><strong data-invoice-total-output>$14.00</strong></dd>
+                  </div>
+                </dl>
+                <p class="calculator-status" data-invoice-status>Enter your confirmed live total first.</p>
+              </div>
+              <button class="button button-lilac" type="button" data-invoice-pay-action aria-label="Copy your invoice total and open Square to pay">
                 <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                   <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
                   <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
                   <path d="M11 11h5"></path>
                   <path d="M11 15h3"></path>
                 </svg>
-                Settle Invoice Balance
-              </a>
+                Copy Total & Open Square
+              </button>
             </article>
           </div>
 
@@ -1856,7 +1980,7 @@
           <div>
             <div class="footer-links" aria-label="Social links">
               <a class="social-link" href="https://www.tiktok.com/@beadbuddies8" data-config-url="tiktokUrl" target="_blank" rel="noopener noreferrer">TikTok</a>
-              <a class="social-link" href="https://www.instagram.com/beadbuddies8/" data-config-url="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="social-link" href="https://www.instagram.com/bead.buddies4/" data-config-url="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
           </div>
         </div>
@@ -1944,6 +2068,109 @@
     }
 
     refreshLiveBadges();
+
+    const invoiceCalculator = document.querySelector("[data-invoice-calculator]");
+    const invoiceInput = document.querySelector("[data-invoice-subtotal]");
+    const invoiceSubtotalOutput = document.querySelector("[data-invoice-subtotal-output]");
+    const invoicePostageOutput = document.querySelector("[data-invoice-postage-output]");
+    const invoiceTotalOutput = document.querySelector("[data-invoice-total-output]");
+    const invoiceStatus = document.querySelector("[data-invoice-status]");
+    const invoicePayAction = document.querySelector("[data-invoice-pay-action]");
+    const postageAmount = Number(siteConfig.postageAmount || 14);
+
+    const audFormatter = new Intl.NumberFormat("en-AU", {
+      style: "currency",
+      currency: "AUD"
+    });
+
+    function getInvoiceSubtotal() {
+      if (!invoiceInput) return 0;
+      const rawValue = invoiceInput.value.trim();
+      if (!rawValue) return 0;
+      const parsedValue = Number(rawValue);
+      return Number.isFinite(parsedValue) && parsedValue >= 0 ? parsedValue : 0;
+    }
+
+    function getInvoiceTotal() {
+      return getInvoiceSubtotal() + postageAmount;
+    }
+
+    function setInvoiceStatus(message, type) {
+      if (!invoiceStatus) return;
+
+      invoiceStatus.textContent = message;
+      invoiceStatus.classList.toggle("is-success", type === "success");
+      invoiceStatus.classList.toggle("is-warning", type === "warning");
+    }
+
+    function refreshInvoiceCalculator() {
+      if (!invoiceCalculator) return;
+
+      const subtotal = getInvoiceSubtotal();
+      const total = subtotal + postageAmount;
+      if (invoiceSubtotalOutput) invoiceSubtotalOutput.textContent = audFormatter.format(subtotal);
+      if (invoicePostageOutput) invoicePostageOutput.textContent = audFormatter.format(postageAmount);
+      if (invoiceTotalOutput) invoiceTotalOutput.textContent = audFormatter.format(total);
+
+      if (invoiceInput && invoiceInput.value.trim()) {
+        setInvoiceStatus(`Copy ${audFormatter.format(total)} and paste it into Square.`, "success");
+      } else {
+        setInvoiceStatus("Enter your confirmed live total first.", "");
+      }
+    }
+
+    async function copyToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+
+      const fallbackInput = document.createElement("textarea");
+      fallbackInput.value = text;
+      fallbackInput.setAttribute("readonly", "");
+      fallbackInput.style.position = "fixed";
+      fallbackInput.style.top = "-999px";
+      document.body.appendChild(fallbackInput);
+      fallbackInput.select();
+      const copied = document.execCommand("copy");
+      fallbackInput.remove();
+      return copied;
+    }
+
+    if (invoiceInput) {
+      refreshInvoiceCalculator();
+      invoiceInput.addEventListener("input", refreshInvoiceCalculator);
+    }
+
+    if (invoicePayAction) {
+      invoicePayAction.addEventListener("click", async () => {
+        if (!invoiceInput || !invoiceInput.value.trim()) {
+          setInvoiceStatus("Pop your confirmed live total in first, then tap again.", "warning");
+          invoiceInput?.focus();
+          return;
+        }
+
+        const total = getInvoiceTotal();
+        const totalText = total.toFixed(2);
+        const displayTotal = audFormatter.format(total);
+        try {
+          const copied = await copyToClipboard(totalText);
+          if (!copied) {
+            setInvoiceStatus(`Copy this amount for Square: ${displayTotal}`, "warning");
+            return;
+          }
+
+          setInvoiceStatus(`${displayTotal} copied. Opening Square now.`, "success");
+        } catch (error) {
+          setInvoiceStatus(`Copy this amount for Square: ${displayTotal}`, "warning");
+          return;
+        }
+
+        window.setTimeout(() => {
+          window.location.href = siteConfig.invoiceUrl || "https://square.link/u/p8mzgLtx";
+        }, 250);
+      });
+    }
 
     document.querySelectorAll(".button").forEach((button) => {
       button.addEventListener("pointerdown", () => button.classList.add("is-pressed"));
