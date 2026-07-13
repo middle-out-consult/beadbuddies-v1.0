@@ -1123,6 +1123,45 @@
       border-bottom: 1px solid rgba(44, 37, 39, 0.08);
     }
 
+    .payment-assurance {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      max-width: 820px;
+      margin: -0.8rem auto 2rem;
+      border-top: 2px dashed rgba(44, 37, 39, 0.24);
+      border-bottom: 2px dashed rgba(44, 37, 39, 0.24);
+      background: rgba(252, 225, 129, 0.28);
+      padding: 0.9rem 1rem;
+    }
+
+    .payment-assurance-mark {
+      display: grid;
+      flex: 0 0 38px;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(44, 37, 39, 0.82);
+      border-radius: 50%;
+      background: var(--pink);
+      color: var(--charcoal);
+      font-weight: 900;
+    }
+
+    .payment-assurance p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .payment-assurance strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--charcoal);
+      font-family: "Fredoka", sans-serif;
+      font-size: 1rem;
+    }
+
     .payment-card {
       display: flex;
       flex-direction: column;
@@ -1707,14 +1746,14 @@
                   </svg>
                   Pay $14 Deposit
                 </a>
-                <a class="button button-lilac" href="#payments" aria-label="Jump to the invoice total calculator">
+                <a class="button button-lilac" href="#payments" aria-label="Jump to the balance payment calculator">
                   <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
                     <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
                     <path d="M11 11h5"></path>
                     <path d="M11 15h3"></path>
                   </svg>
-                  Calculate Invoice Total
+                  Calculate & Pay Balance
                 </a>
               </div>
               <span class="hero-note"><span class="live-badge" data-live-badge>Check TikTok</span><span class="hero-note-text">Claims happen live at @beadbuddies8</span></span>
@@ -1843,7 +1882,7 @@
         <div class="container">
           <div class="section-header">
             <h2 id="how-title">How live shopping works</h2>
-            <p>Claim your favourites in the live, follow the deposit rules, then settle your final invoice within the payment window.</p>
+            <p>Claim your favourites in the live, follow the deposit rules, then settle your confirmed balance within the payment window.</p>
           </div>
 
           <div class="steps-grid">
@@ -1880,7 +1919,7 @@
                 </svg>
               </div>
               <h3>3. Pay Balance & Ship</h3>
-              <p>Pay your invoice in full within <strong>3 days</strong>. A flat <strong>$14 postage fee</strong> is payable at checkout; need more time, chat to us.</p>
+              <p>Pay your confirmed balance in full within <strong>3 days</strong>. A flat <strong>$14 postage fee</strong> is payable at checkout; need more time, chat to us.</p>
             </article>
           </div>
         </div>
@@ -1891,7 +1930,12 @@
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Payment Hub</span>
             <h2 id="payments-title">Lock in your live claims</h2>
-            <p>Use these Square checkout points after claiming during a TikTok Live or once your custom total has been confirmed.</p>
+            <p>Use these Bead Buddies Square checkout links after claiming during a TikTok Live or once your custom total has been confirmed.</p>
+          </div>
+
+          <div class="payment-assurance" role="note" aria-label="How payments are processed">
+            <span class="payment-assurance-mark" aria-hidden="true">$</span>
+            <p><strong>Payments are securely handled by Square</strong>Both buttons open Bead Buddies' Square checkout. Payments are received in the Bead Buddies Square merchant account; this website never stores card details or holds customer funds.</p>
           </div>
 
           <div class="payment-grid">
@@ -1910,8 +1954,8 @@
             </article>
 
             <article class="payment-card" style="--accent: rgba(212, 193, 236, 0.38);">
-              <span class="price-chip">Final Custom Total</span>
-              <h3>Settle Your Invoice Balance</h3>
+              <span class="price-chip">Confirmed Live Total</span>
+              <h3>Pay Your Confirmed Balance</h3>
               <p>Ready to check out completely? Add the flat <strong>$14 postage</strong> to your confirmed live-sale total, copy the amount, then paste it into Square.</p>
               <div class="invoice-calculator" data-invoice-calculator>
                 <label class="calculator-label" for="invoice-subtotal">
@@ -1937,7 +1981,7 @@
                 </dl>
                 <p class="calculator-status" data-invoice-status>Enter your confirmed live total first.</p>
               </div>
-              <button class="button button-lilac" type="button" data-invoice-pay-action aria-label="Copy your invoice total and open Square to pay">
+              <button class="button button-lilac" type="button" data-invoice-pay-action aria-label="Copy your confirmed balance and open Square to pay">
                 <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                   <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
                   <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
@@ -1988,6 +2032,7 @@
           <div class="payment-logos" aria-label="Accepted payments through Square">
             <span class="payment-badge">Visa</span>
             <span class="payment-badge">Mastercard</span>
+            <span class="payment-badge">Afterpay</span>
             <span class="payment-badge">Square</span>
           </div>
           <span>&copy; <span id="year">2026</span> Bead Buddies. All rights reserved.</span>
