@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, acrylic focals, and beaded pens through TikTok Live sales.">
+  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, acrylic focals, and beaded pens through TikTok Live sales, with selected international shipping.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F1A1B4">
-  <title>Bead Buddies | Aussie Bead & Craft Haven</title>
+  <title>Bead Buddies | Bead & Craft Haven</title>
   <link rel="canonical" href="https://www.beadbuddies.com.au/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:site_name" content="Bead Buddies">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Bead Buddies | Aussie Bead & Craft Haven">
-  <meta property="og:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed exclusively during Bead Buddies TikTok Lives in Australia.">
+  <meta property="og:title" content="Bead Buddies | Bead & Craft Haven">
+  <meta property="og:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta property="og:url" content="https://www.beadbuddies.com.au/">
   <meta property="og:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Bead Buddies pastel bead and craft preview">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bead Buddies | Aussie Bead & Craft Haven">
-  <meta name="twitter:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed exclusively during Bead Buddies TikTok Lives in Australia.">
+  <meta name="twitter:title" content="Bead Buddies | Bead & Craft Haven">
+  <meta name="twitter:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta name="twitter:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <script type="application/ld+json">
     {
@@ -29,16 +29,22 @@
       "@type": "Store",
       "name": "Bead Buddies",
       "url": "https://www.beadbuddies.com.au/",
-      "description": "Australian TikTok Live bead, acrylic focal, charm, and beaded pen sales.",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Australia"
-      },
+      "description": "Australian TikTok Live bead, acrylic focal, charm, and beaded pen sales with selected international shipping.",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "New Zealand"
+        }
+      ],
       "sameAs": [
         "https://www.tiktok.com/@beadbuddies8",
         "https://www.instagram.com/bead.buddies4/"
       ],
-      "paymentAccepted": "Square",
+      "paymentAccepted": "Square, Afterpay",
       "currenciesAccepted": "AUD"
     }
   </script>
@@ -47,11 +53,9 @@
       tiktokUrl: "https://www.tiktok.com/@beadbuddies8",
       instagramUrl: "https://www.instagram.com/bead.buddies4/",
       depositUrl: "https://square.link/u/egRTioGV",
-      invoiceUrl: "https://square.link/u/p8mzgLtx",
-      postageAmount: 14,
       isLiveDefault: false,
-      shippingText: "Australia-only shipping with a flat $14 postage fee payable at checkout.",
-      invoiceWindowText: "Invoices are payable in full within 3 days. Unpaid baskets return to live stock after the payment window.",
+      shippingText: "Shipping is available to Australia, New Zealand, and selected international destinations. Postage is calculated for your location and added to your Square invoice.",
+      invoiceWindowText: "Invoices are payable in full within 3 days unless otherwise arranged. Unpaid baskets return to live stock after the payment window.",
       basketLimitText: "Live-sale baskets are capped at $200 total."
     };
   </script>
@@ -1203,103 +1207,77 @@
       margin-bottom: 1.35rem;
     }
 
-    .invoice-calculator {
+    .invoice-guide {
       position: relative;
       z-index: 1;
       display: grid;
-      gap: 0.85rem;
+      gap: 0;
       margin: 0 0 1.1rem;
-      border: 2px dashed rgba(44, 37, 39, 0.22);
-      border-radius: 20px;
-      background:
-        radial-gradient(circle at 94% 8%, rgba(252, 225, 129, 0.42), transparent 32%),
-        linear-gradient(135deg, rgba(255, 249, 250, 0.95), rgba(245, 236, 255, 0.92));
-      padding: 0.95rem;
+      padding: 0;
+      list-style: none;
+      counter-reset: invoice-step;
     }
 
-    .calculator-label {
+    .invoice-guide li {
+      counter-increment: invoice-step;
       display: grid;
-      gap: 0.35rem;
-      color: var(--charcoal);
-      font-size: 0.88rem;
-      font-weight: 900;
-    }
-
-    .money-input {
-      display: flex;
-      align-items: center;
-      min-height: 54px;
-      border: 2px solid rgba(44, 37, 39, 0.84);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 7px 0 rgba(44, 37, 39, 0.08);
-      overflow: hidden;
-    }
-
-    .money-prefix {
-      display: grid;
-      place-items: center;
-      align-self: stretch;
-      min-width: 48px;
-      border-right: 2px solid rgba(44, 37, 39, 0.14);
-      background: rgba(252, 225, 129, 0.5);
-      font-weight: 900;
-    }
-
-    .money-input input {
-      width: 100%;
-      min-width: 0;
-      border: 0;
-      background: transparent;
-      color: var(--charcoal);
-      font: inherit;
-      font-size: 1.05rem;
-      font-weight: 800;
-      padding: 0.7rem 0.85rem;
-      outline: 0;
-    }
-
-    .money-input:focus-within {
-      border-color: var(--pink-strong);
-      box-shadow: 0 7px 0 rgba(231, 111, 149, 0.18), 0 0 0 4px rgba(241, 161, 180, 0.2);
-    }
-
-    .calculator-summary {
-      display: grid;
-      gap: 0.38rem;
-      margin: 0;
+      grid-template-columns: 34px 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      border-top: 1px solid rgba(44, 37, 39, 0.14);
+      padding: 0.72rem 0;
       color: var(--muted);
       font-size: 0.9rem;
-      font-weight: 800;
+      font-weight: 700;
     }
 
-    .calculator-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-
-    .calculator-row strong {
+    .invoice-guide li::before {
+      content: counter(invoice-step);
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 2px solid rgba(44, 37, 39, 0.82);
+      border-radius: 50%;
+      background: var(--gold);
       color: var(--charcoal);
-      font-size: 1.12rem;
-      font-weight: 900;
+      font-family: "Fredoka", sans-serif;
+      font-weight: 700;
+      box-shadow: 0 4px 0 rgba(44, 37, 39, 0.08);
     }
 
-    .calculator-status {
-      min-height: 1.25rem;
-      margin: -0.25rem 0 0;
+    .invoice-action-note {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: auto;
+      border: 2px solid rgba(44, 37, 39, 0.78);
+      border-radius: 16px;
+      background: rgba(212, 193, 236, 0.38);
+      padding: 0.8rem;
+      color: var(--charcoal);
+      font-size: 0.88rem;
+      font-weight: 800;
+      box-shadow: 0 6px 0 rgba(44, 37, 39, 0.08);
+    }
+
+    .invoice-action-note svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .payment-card .afterpay-line {
+      margin: 0.9rem 0 0;
       color: var(--muted);
       font-size: 0.84rem;
-      font-weight: 800;
-    }
-
-    .calculator-status.is-success {
-      color: #247a5b;
-    }
-
-    .calculator-status.is-warning {
-      color: #9a4f14;
     }
 
     .terms-board {
@@ -1385,8 +1363,12 @@
       border: 2px solid rgba(44, 37, 39, 0.78);
       border-radius: 20px;
       background: var(--term-bg, rgba(255, 255, 255, 0.78));
-      padding: 0.9rem 0.95rem 0.9rem 4.05rem;
+      padding: 0.9rem 0.95rem 0.9rem 4.7rem;
       box-shadow: 0 8px 0 rgba(44, 37, 39, 0.09);
+    }
+
+    .terms-list li:first-child {
+      grid-column: 1 / -1;
     }
 
     .terms-list li:nth-child(1) {
@@ -1405,12 +1387,16 @@
       --term-bg: #dcf8ef;
     }
 
+    .terms-list li:nth-child(5) {
+      --term-bg: #dff1ff;
+    }
+
     .terms-list li::before {
       content: attr(data-icon);
       position: absolute;
       left: 0.8rem;
       top: 0.85rem;
-      width: 44px;
+      width: 54px;
       height: 36px;
       display: grid;
       place-items: center;
@@ -1418,8 +1404,9 @@
       border-radius: 13px;
       background: rgba(255, 255, 255, 0.72);
       color: var(--charcoal);
-      font-size: 0.84rem;
+      font-size: 0.72rem;
       font-weight: 900;
+      text-transform: uppercase;
       box-shadow: 0 5px 0 rgba(44, 37, 39, 0.08);
     }
 
@@ -1711,7 +1698,7 @@
         </a>
         <div class="nav-actions">
           <span class="live-badge" data-live-badge>Check TikTok</span>
-          <span class="pill">AU Shipping Only 🐨</span>
+          <span class="pill">International Shipping</span>
           <a class="button button-pink" href="https://www.tiktok.com/@beadbuddies8" data-config-url="tiktokUrl" target="_blank" rel="noopener noreferrer" aria-label="Watch Bead Buddies live on TikTok">
             <span class="nav-cta-full">Watch Live on TikTok</span>
             <span class="nav-cta-short" aria-hidden="true">TikTok Live</span>
@@ -1724,8 +1711,8 @@
       <section class="section hero" id="top" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div>
-            <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> TikTok Live claims for Aussie craft lovers</span>
-            <h1 id="hero-title">Your Go-To Aussie Bead & Craft Haven!</h1>
+            <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> TikTok Live claims for colourful craft lovers</span>
+            <h1 id="hero-title">Your Go-To Bead & Craft Haven!</h1>
             <p class="hero-copy">
               Custom beads, acrylic focals, and beaded pens are claimed <strong>exclusively during Bead Buddies TikTok Lives</strong>. Jump in live, call your favourites, then use the payment hub below to secure your basket.
             </p>
@@ -1746,14 +1733,14 @@
                   </svg>
                   Pay $14 Deposit
                 </a>
-                <a class="button button-lilac" href="#payments" aria-label="Jump to the balance payment calculator">
+                <a class="button button-lilac" href="#payments" aria-label="Learn how to pay your personalised Square invoice">
                   <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
                     <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
                     <path d="M11 11h5"></path>
                     <path d="M11 15h3"></path>
                   </svg>
-                  Calculate & Pay Balance
+                  How to Pay Your Invoice
                 </a>
               </div>
               <span class="hero-note"><span class="live-badge" data-live-badge>Check TikTok</span><span class="hero-note-text">Claims happen live at @beadbuddies8</span></span>
@@ -1906,7 +1893,7 @@
                 </svg>
               </div>
               <h3>2. Secure Your Order</h3>
-              <p>New shoppers pay a once-only <strong>$14 non-refundable deposit</strong> before a basket is held. Live baskets are capped at <strong>$200 total</strong>.</p>
+              <p>New shoppers pay a once-only <strong>$14 non-refundable deposit</strong> before a basket is held. It is deducted from your first invoice, and live baskets are capped at <strong>$200 total</strong>.</p>
             </article>
 
             <article class="step-card" style="--accent: rgba(252, 225, 129, 0.42);">
@@ -1919,7 +1906,7 @@
                 </svg>
               </div>
               <h3>3. Pay Balance & Ship</h3>
-              <p>Pay your confirmed balance in full within <strong>3 days</strong>. A flat <strong>$14 postage fee</strong> is payable at checkout; need more time, chat to us.</p>
+              <p>Your personalised Square invoice includes postage for your destination and deducts your first-time deposit. Pay in full within <strong>3 days unless otherwise arranged</strong>.</p>
             </article>
           </div>
         </div>
@@ -1929,20 +1916,20 @@
         <div class="container">
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Payment Hub</span>
-            <h2 id="payments-title">Lock in your live claims</h2>
-            <p>Use these Bead Buddies Square checkout links after claiming during a TikTok Live or once your custom total has been confirmed.</p>
+            <h2 id="payments-title">Secure your basket, then pay by invoice</h2>
+            <p>New shoppers can pay the once-only deposit here. Final balances are paid from the personalised Square invoice sent directly to you.</p>
           </div>
 
           <div class="payment-assurance" role="note" aria-label="How payments are processed">
             <span class="payment-assurance-mark" aria-hidden="true">$</span>
-            <p><strong>Payments are securely handled by Square</strong>Both buttons open Bead Buddies' Square checkout. Payments are received in the Bead Buddies Square merchant account; this website never stores card details or holds customer funds.</p>
+            <p><strong>Payments are securely handled by Square.</strong> The deposit button opens Bead Buddies' Square checkout, while your final payment is made from your personalised Square invoice. This website never stores card details or holds customer funds.</p>
           </div>
 
           <div class="payment-grid">
             <article class="payment-card" style="--accent: rgba(241, 161, 180, 0.32);">
               <span class="price-chip">$14 Fixed Deposit</span>
               <h3>Live Sale Deposit</h3>
-              <p>First time shopping with us? Pay your once-only fixed deposit here. This deposit is <strong>non-refundable</strong> and helps lock in your first basket.</p>
+              <p>First time shopping with us? Pay your once-only fixed deposit here. It is <strong>non-refundable</strong>, locks in your first basket, and is deducted from your first invoice.</p>
               <a class="button button-pink" href="https://square.link/u/egRTioGV" data-config-url="depositUrl" target="_blank" rel="noopener noreferrer" aria-label="Pay the fourteen dollar deposit through Square">
                 <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
                   <rect x="3" y="5" width="18" height="14" rx="3"></rect>
@@ -1954,42 +1941,22 @@
             </article>
 
             <article class="payment-card" style="--accent: rgba(212, 193, 236, 0.38);">
-              <span class="price-chip">Confirmed Live Total</span>
-              <h3>Pay Your Confirmed Balance</h3>
-              <p>Ready to check out completely? Add the flat <strong>$14 postage</strong> to your confirmed live-sale total, copy the amount, then paste it into Square.</p>
-              <div class="invoice-calculator" data-invoice-calculator>
-                <label class="calculator-label" for="invoice-subtotal">
-                  Your confirmed order total
-                  <span class="money-input">
-                    <span class="money-prefix" aria-hidden="true">$</span>
-                    <input id="invoice-subtotal" data-invoice-subtotal type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" autocomplete="off">
-                  </span>
-                </label>
-                <dl class="calculator-summary" aria-live="polite">
-                  <div class="calculator-row">
-                    <dt>Order total</dt>
-                    <dd data-invoice-subtotal-output>$0.00</dd>
-                  </div>
-                  <div class="calculator-row">
-                    <dt>Flat postage</dt>
-                    <dd data-invoice-postage-output>$14.00</dd>
-                  </div>
-                  <div class="calculator-row">
-                    <dt>Amount to pay</dt>
-                    <dd><strong data-invoice-total-output>$14.00</strong></dd>
-                  </div>
-                </dl>
-                <p class="calculator-status" data-invoice-status>Enter your confirmed live total first.</p>
-              </div>
-              <button class="button button-lilac" type="button" data-invoice-pay-action aria-label="Copy your confirmed balance and open Square to pay">
-                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M8 6h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"></path>
-                  <path d="M6 10H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"></path>
-                  <path d="M11 11h5"></path>
-                  <path d="M11 15h3"></path>
+              <span class="price-chip">Personalised Square Invoice</span>
+              <h3>Pay From Your Invoice</h3>
+              <p>After the Live, Bead Buddies will send your confirmed total in a Square invoice. It includes postage for your destination and, for new shoppers, deducts the $14 deposit.</p>
+              <ol class="invoice-guide">
+                <li><span>Open the Square invoice sent to you by email or text.</span></li>
+                <li><span>Check your items, postage, and final amount.</span></li>
+                <li><span>Tap <strong>Pay Invoice</strong> and complete payment within three days unless otherwise arranged.</span></li>
+              </ol>
+              <div class="invoice-action-note">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                  <path d="m4 7 8 6 8-6"></path>
                 </svg>
-                Copy Total & Open Square
-              </button>
+                <span>Your payment button is inside the Square invoice sent directly to you.</span>
+              </div>
+              <p class="afterpay-line"><strong>Afterpay</strong> is available on eligible Square invoices.</p>
             </article>
           </div>
 
@@ -1998,15 +1965,16 @@
               <div class="terms-icon" aria-hidden="true">!</div>
               <div>
                 <p class="terms-title">Terms & Conditions</p>
-                <p class="terms-intro">Cute baskets, clear rules: here is the live-sale checkout rhythm.</p>
+                <p class="terms-intro">Cute baskets, clear rules.</p>
               </div>
             </div>
             <div>
               <ul class="terms-list">
-                <li data-icon="$14"><strong>Deposit:</strong> if you have never shopped with Bead Buddies, the $14 deposit is payable once and is non-refundable.</li>
-                <li data-icon="AU"><strong>Postage:</strong> <span data-config-text="shippingText">Australia-only shipping with a flat $14 postage fee payable at checkout.</span></li>
+                <li data-icon="Live"><strong>Live claims:</strong> claims made during a TikTok Live form a sales agreement. Once the Live has ended, claims cannot be changed or cancelled for change of mind. This does not limit your rights under Australian Consumer Law.</li>
+                <li data-icon="$14"><strong>Deposit:</strong> if you have never shopped with Bead Buddies, the $14 deposit is payable once, is non-refundable, and is deducted from your first invoice.</li>
+                <li data-icon="Ship"><strong>Postage:</strong> <span data-config-text="shippingText">Shipping is available to Australia, New Zealand, and selected international destinations. Postage is calculated for your location and added to your Square invoice.</span></li>
                 <li data-icon="$200"><strong>Basket cap:</strong> <span data-config-text="basketLimitText">Live-sale baskets are capped at $200 total.</span></li>
-                <li data-icon="3d"><strong>Invoices:</strong> <span data-config-text="invoiceWindowText">Invoices are payable in full within 3 days. Unpaid baskets return to live stock after the payment window.</span></li>
+                <li data-icon="3 days"><strong>Invoices:</strong> <span data-config-text="invoiceWindowText">Invoices are payable in full within 3 days unless otherwise arranged. Unpaid baskets return to live stock after the payment window.</span></li>
               </ul>
             </div>
           </aside>
@@ -2019,7 +1987,7 @@
         <div class="footer-grid">
           <div>
             <div class="footer-brand">Bead Buddies</div>
-            <p class="footer-copy">Australian TikTok Live sales and a growing bead-loving community for creating, collecting, and sharing colourful crafty treats.</p>
+            <p class="footer-copy">An Australian TikTok Live bead community for creating, collecting, and sharing colourful crafty treats, with selected international shipping.</p>
           </div>
           <div>
             <div class="footer-links" aria-label="Social links">
@@ -2113,109 +2081,6 @@
     }
 
     refreshLiveBadges();
-
-    const invoiceCalculator = document.querySelector("[data-invoice-calculator]");
-    const invoiceInput = document.querySelector("[data-invoice-subtotal]");
-    const invoiceSubtotalOutput = document.querySelector("[data-invoice-subtotal-output]");
-    const invoicePostageOutput = document.querySelector("[data-invoice-postage-output]");
-    const invoiceTotalOutput = document.querySelector("[data-invoice-total-output]");
-    const invoiceStatus = document.querySelector("[data-invoice-status]");
-    const invoicePayAction = document.querySelector("[data-invoice-pay-action]");
-    const postageAmount = Number(siteConfig.postageAmount || 14);
-
-    const audFormatter = new Intl.NumberFormat("en-AU", {
-      style: "currency",
-      currency: "AUD"
-    });
-
-    function getInvoiceSubtotal() {
-      if (!invoiceInput) return 0;
-      const rawValue = invoiceInput.value.trim();
-      if (!rawValue) return 0;
-      const parsedValue = Number(rawValue);
-      return Number.isFinite(parsedValue) && parsedValue >= 0 ? parsedValue : 0;
-    }
-
-    function getInvoiceTotal() {
-      return getInvoiceSubtotal() + postageAmount;
-    }
-
-    function setInvoiceStatus(message, type) {
-      if (!invoiceStatus) return;
-
-      invoiceStatus.textContent = message;
-      invoiceStatus.classList.toggle("is-success", type === "success");
-      invoiceStatus.classList.toggle("is-warning", type === "warning");
-    }
-
-    function refreshInvoiceCalculator() {
-      if (!invoiceCalculator) return;
-
-      const subtotal = getInvoiceSubtotal();
-      const total = subtotal + postageAmount;
-      if (invoiceSubtotalOutput) invoiceSubtotalOutput.textContent = audFormatter.format(subtotal);
-      if (invoicePostageOutput) invoicePostageOutput.textContent = audFormatter.format(postageAmount);
-      if (invoiceTotalOutput) invoiceTotalOutput.textContent = audFormatter.format(total);
-
-      if (invoiceInput && invoiceInput.value.trim()) {
-        setInvoiceStatus(`Copy ${audFormatter.format(total)} and paste it into Square.`, "success");
-      } else {
-        setInvoiceStatus("Enter your confirmed live total first.", "");
-      }
-    }
-
-    async function copyToClipboard(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-        return true;
-      }
-
-      const fallbackInput = document.createElement("textarea");
-      fallbackInput.value = text;
-      fallbackInput.setAttribute("readonly", "");
-      fallbackInput.style.position = "fixed";
-      fallbackInput.style.top = "-999px";
-      document.body.appendChild(fallbackInput);
-      fallbackInput.select();
-      const copied = document.execCommand("copy");
-      fallbackInput.remove();
-      return copied;
-    }
-
-    if (invoiceInput) {
-      refreshInvoiceCalculator();
-      invoiceInput.addEventListener("input", refreshInvoiceCalculator);
-    }
-
-    if (invoicePayAction) {
-      invoicePayAction.addEventListener("click", async () => {
-        if (!invoiceInput || !invoiceInput.value.trim()) {
-          setInvoiceStatus("Pop your confirmed live total in first, then tap again.", "warning");
-          invoiceInput?.focus();
-          return;
-        }
-
-        const total = getInvoiceTotal();
-        const totalText = total.toFixed(2);
-        const displayTotal = audFormatter.format(total);
-        try {
-          const copied = await copyToClipboard(totalText);
-          if (!copied) {
-            setInvoiceStatus(`Copy this amount for Square: ${displayTotal}`, "warning");
-            return;
-          }
-
-          setInvoiceStatus(`${displayTotal} copied. Opening Square now.`, "success");
-        } catch (error) {
-          setInvoiceStatus(`Copy this amount for Square: ${displayTotal}`, "warning");
-          return;
-        }
-
-        window.setTimeout(() => {
-          window.location.href = siteConfig.invoiceUrl || "https://square.link/u/p8mzgLtx";
-        }, 250);
-      });
-    }
 
     document.querySelectorAll(".button").forEach((button) => {
       button.addEventListener("pointerdown", () => button.classList.add("is-pressed"));

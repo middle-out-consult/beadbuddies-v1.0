@@ -11,12 +11,13 @@ The naked address `https://beadbuddies.com.au/` cannot be attached directly to C
 
 ## Payment routing
 
-The website does not process or hold payments. It links customers to two hosted Square checkouts owned by the same public Square merchant ID (`MLQQXF6MDZTRB`):
+The website does not process or hold payments. New shoppers can use the hosted Square deposit checkout owned by public Square merchant ID `MLQQXF6MDZTRB`:
 
 - Once-only $14 deposit: `https://square.link/u/egRTioGV`
-- Confirmed balance payment: `https://square.link/u/p8mzgLtx`
 
-Payments, transaction history, refunds, Square balance and bank transfers are managed in the Square account that owns these links.
+The deposit is non-refundable and must be deducted from the shopper's first invoice. Final balances are not collected through a generic website link. Helen sends each shopper a personalised Square invoice containing their items, destination-based postage and any first-invoice deposit deduction. Invoices are payable within three days unless otherwise arranged.
+
+Payments, transaction history, refunds, Square balance and bank transfers are managed in the Square account that owns the deposit link and invoices.
 
 ## Account-owner checks
 
@@ -27,9 +28,13 @@ Helen or an authorised Square team member must:
 3. Check Settings > Account & Settings > Money > Bank accounts.
 4. Confirm the linked bank account and transfer schedule.
 5. Enable email notifications for Payment Link transactions if desired.
-6. Review the Afterpay eligibility range and processing fees under Settings > Account & Settings > Payments > Payment methods.
+6. Keep Afterpay enabled for Online payments under Settings > Account & Settings > Payments > Payment methods.
+7. Enable Afterpay in the default Square Invoice template and verify it remains selected when sending eligible invoices.
+8. Add the correct destination-based postage to each invoice and deduct the $14 deposit from each new shopper's first invoice.
 
-Afterpay Online was publicly verified on both checkout links on 13 July 2026. The deposit checkout displayed four instalments of $3.50, and the balance checkout displayed Afterpay after a harmless sample amount was entered. No payment was submitted during verification.
+Afterpay Online was publicly verified on the deposit checkout on 13 July 2026. The checkout displayed four instalments of $3.50. No payment was submitted during verification.
+
+The former generic balance link (`https://square.link/u/p8mzgLtx`) is no longer published on the website. Deactivate it in Square once no existing customer still needs it.
 
 ## PayPal
 
