@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, acrylic focals, and beaded pens through TikTok Live sales, with selected international shipping.">
+  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, acrylic focals, charms, and colourful craft supplies through TikTok Live sales, with selected international shipping.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F1A1B4">
   <title>Bead Buddies | Bead & Craft Haven</title>
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Bead Buddies">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bead Buddies | Bead & Craft Haven">
-  <meta property="og:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed during Bead Buddies TikTok Lives, with selected international shipping.">
+  <meta property="og:description" content="Custom beads, acrylic focals, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta property="og:url" content="https://www.beadbuddies.com.au/">
   <meta property="og:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="Bead Buddies pastel bead and craft preview">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bead Buddies | Bead & Craft Haven">
-  <meta name="twitter:description" content="Custom beads, acrylic focals, charms, and beaded pens claimed during Bead Buddies TikTok Lives, with selected international shipping.">
+  <meta name="twitter:description" content="Custom beads, acrylic focals, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta name="twitter:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <script type="application/ld+json">
     {
@@ -29,7 +29,7 @@
       "@type": "Store",
       "name": "Bead Buddies",
       "url": "https://www.beadbuddies.com.au/",
-      "description": "Australian TikTok Live bead, acrylic focal, charm, and beaded pen sales with selected international shipping.",
+      "description": "Australian TikTok Live bead, acrylic focal, charm, and colourful craft supply sales with selected international shipping.",
       "areaServed": [
         {
           "@type": "Country",
@@ -913,51 +913,6 @@
       text-transform: uppercase;
     }
 
-    .art-pen {
-      position: relative;
-      z-index: 1;
-      width: clamp(46px, 12vw, 74px);
-      height: 78%;
-      border: 2px solid rgba(44, 37, 39, 0.64);
-      border-radius: 999px;
-      background:
-        linear-gradient(180deg, transparent 0 18%, rgba(44, 37, 39, 0.18) 18% 19%, transparent 19% 100%),
-        linear-gradient(180deg, var(--pen-top, #ffd5df) 0 21%, #ffffff 21% 28%, var(--pen-body, #f7d8ff) 28% 100%);
-      box-shadow: 0 18px 30px rgba(93, 59, 77, 0.16);
-    }
-
-    .art-pen::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 7%;
-      width: 150%;
-      aspect-ratio: 1;
-      border: 2px solid rgba(44, 37, 39, 0.64);
-      border-radius: 34% 42% 44% 38%;
-      background:
-        radial-gradient(circle at 32% 36%, #161417 0 4%, transparent 4.5%),
-        radial-gradient(circle at 66% 36%, #161417 0 4%, transparent 4.5%),
-        radial-gradient(circle at 50% 47%, #f8b549 0 3.5%, transparent 4%),
-        radial-gradient(circle at 30% 52%, rgba(241, 161, 180, 0.9) 0 8%, transparent 8.5%),
-        radial-gradient(circle at 68% 52%, rgba(241, 161, 180, 0.9) 0 8%, transparent 8.5%),
-        linear-gradient(135deg, #fff8fa, var(--character, #ffd6df));
-      box-shadow: 0 12px 22px rgba(93, 59, 77, 0.16);
-      transform: translateX(-50%) rotate(var(--head-tilt, -5deg));
-    }
-
-    .art-pen::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -4%;
-      width: 42%;
-      height: 12%;
-      border-radius: 0 0 999px 999px;
-      background: #2c2527;
-      transform: translateX(-50%);
-    }
-
     .art-charm {
       position: relative;
       z-index: 1;
@@ -995,19 +950,6 @@
       font-size: clamp(2.5rem, 11vw, 4.8rem);
       transform: translateX(-50%);
       text-shadow: 0 5px 12px rgba(93, 59, 77, 0.12);
-    }
-
-    .art-kitty {
-      --pen-top: #ffd0dd;
-      --pen-body: #d8c4ff;
-      --character: #ffffff;
-    }
-
-    .art-bunny {
-      --pen-top: #ff92b3;
-      --pen-body: #f8fbff;
-      --character: #ffc1d1;
-      --head-tilt: 4deg;
     }
 
     .art-pink {
@@ -1371,24 +1313,32 @@
       grid-column: 1 / -1;
     }
 
+    .terms-list li:last-child {
+      grid-column: 1 / -1;
+    }
+
     .terms-list li:nth-child(1) {
       --term-bg: #ffe1ea;
     }
 
     .terms-list li:nth-child(2) {
-      --term-bg: #fff2b9;
-    }
-
-    .terms-list li:nth-child(3) {
       --term-bg: #e8ddff;
     }
 
+    .terms-list li:nth-child(3) {
+      --term-bg: #fff2b9;
+    }
+
     .terms-list li:nth-child(4) {
-      --term-bg: #dcf8ef;
+      --term-bg: #dff1ff;
     }
 
     .terms-list li:nth-child(5) {
-      --term-bg: #dff1ff;
+      --term-bg: #dcf8ef;
+    }
+
+    .terms-list li:nth-child(6) {
+      --term-bg: #f6e8ff;
     }
 
     .terms-list li::before {
@@ -1714,7 +1664,7 @@
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> TikTok Live claims for colourful craft lovers</span>
             <h1 id="hero-title">Your Go-To Bead & Craft Haven!</h1>
             <p class="hero-copy">
-              Custom beads, acrylic focals, and beaded pens are claimed <strong>exclusively during Bead Buddies TikTok Lives</strong>. Jump in live, call your favourites, then use the payment hub below to secure your basket.
+              Custom beads, acrylic focals, charms, and colourful craft supplies are claimed <strong>exclusively during Bead Buddies TikTok Lives</strong>. Jump in live, call your favourites, then use the payment hub below to secure your basket.
             </p>
             <div class="hero-actions">
               <div class="hero-cta-stack">
@@ -1747,7 +1697,7 @@
             </div>
           </div>
 
-          <figure class="hero-media" aria-label="A Bead Buddies live sale preview video surrounded by examples of beaded pens and acrylic charms">
+          <figure class="hero-media" aria-label="A Bead Buddies live sale preview video surrounded by examples of colourful beads, acrylic focals, and charms">
             <span class="star one" aria-hidden="true"></span>
             <span class="star two" aria-hidden="true"></span>
             <span class="star three" aria-hidden="true"></span>
@@ -1759,12 +1709,12 @@
             </div>
             <div class="hero-goodies" aria-hidden="true">
               <div class="hero-goodie-card one">
-                <img src="assets/kawaii-character-pen.svg" alt="">
-                <span>Kawaii pens</span>
+                <img src="assets/pastel-bead-mix.webp" alt="">
+                <span>Bead mixes</span>
               </div>
               <div class="hero-goodie-card two">
-                <img src="assets/pastel-acrylic-pen.svg" alt="">
-                <span>Pastel stacks</span>
+                <img src="assets/acrylic-focal-collection.webp" alt="">
+                <span>Acrylic focals</span>
               </div>
               <div class="hero-goodie-card three">
                 <img src="assets/pink-flower-charm.svg" alt="">
@@ -1822,24 +1772,24 @@
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Tiny treasures, big personality</span>
             <h2 id="lookbook-title">What pops up on the live</h2>
-            <p>Beads, pens, charms, and glossy pastel bits you might spot in a Bead Buddies basket.</p>
+            <p>Beads, focals, charms, and glossy pastel bits you might spot in a Bead Buddies basket.</p>
           </div>
 
           <div class="showcase-grid">
             <figure class="showcase-card" style="--tilt: -2deg; --card-bg: #ffe1ea; --pop: #e76f95; --pop-soft: rgba(231, 111, 149, 0.24); --glow: rgba(231, 111, 149, 0.25);">
               <div class="photo-stage">
-                <img src="assets/kawaii-character-pen.svg" alt="A pastel character beaded pen with a glossy acrylic focal topper" loading="lazy">
-                <div class="fallback-art art-kitty" aria-hidden="true">
-                  <span class="art-pen"></span>
+                <img src="assets/pastel-bead-mix.webp" alt="A colourful assortment of pastel acrylic beads and focals arranged for a Bead Buddies live sale" loading="lazy">
+                <div class="fallback-art art-pink" aria-hidden="true">
+                  <span class="art-charm"></span>
                 </div>
               </div>
             </figure>
 
             <figure class="showcase-card" style="--tilt: 1.8deg; --card-bg: #e8ddff; --pop: #9f77df; --pop-soft: rgba(159, 119, 223, 0.23); --glow: rgba(159, 119, 223, 0.25);">
               <div class="photo-stage">
-                <img src="assets/pastel-acrylic-pen.svg" alt="A pastel beaded pen with acrylic focals, a flower bead, and pink textured beads" loading="lazy">
-                <div class="fallback-art art-bunny" aria-hidden="true">
-                  <span class="art-pen"></span>
+                <img src="assets/acrylic-focal-collection.webp" alt="A boutique collection of glossy acrylic flower, heart, star, and rainbow focals" loading="lazy">
+                <div class="fallback-art art-green" aria-hidden="true">
+                  <span class="art-charm"></span>
                 </div>
               </div>
             </figure>
@@ -1881,7 +1831,7 @@
                 </svg>
               </div>
               <h3>1. Catch the Live</h3>
-              <p>Tune into <strong>@beadbuddies8</strong> on TikTok and claim your custom beads, acrylic focals, pens, and crafty favourites as they appear.</p>
+              <p>Tune into <strong>@beadbuddies8</strong> on TikTok and claim your custom beads, acrylic focals, charms, and crafty favourites as they appear.</p>
             </article>
 
             <article class="step-card" style="--accent: rgba(212, 193, 236, 0.34);">
@@ -1971,6 +1921,7 @@
             <div>
               <ul class="terms-list">
                 <li data-icon="Live"><strong>Live claims:</strong> claims made during a TikTok Live form a sales agreement. Once the Live has ended, claims cannot be changed or cancelled for change of mind. This does not limit your rights under Australian Consumer Law.</li>
+                <li data-icon="Check"><strong>Claim photo check:</strong> after each Live, you may receive a photo of your claimed items. Please check it carefully and notify Bead Buddies of any errors before paying your invoice. If no corrections are raised before payment, the pictured items will be treated as your confirmed claims. This does not limit your rights under Australian Consumer Law.</li>
                 <li data-icon="$14"><strong>Deposit:</strong> if you have never shopped with Bead Buddies, the $14 deposit is payable once, is non-refundable, and is deducted from your first invoice.</li>
                 <li data-icon="Ship"><strong>Postage:</strong> <span data-config-text="shippingText">Shipping is available to Australia, New Zealand, and selected international destinations. Postage is calculated for your location and added to your Square invoice.</span></li>
                 <li data-icon="$200"><strong>Basket cap:</strong> <span data-config-text="basketLimitText">Live-sale baskets are capped at $200 total.</span></li>
