@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, bracelets, necklaces, acrylic focals, charms, and colourful craft supplies through TikTok Live sales, with selected international shipping.">
+  <meta name="description" content="Bead Buddies is an Australian home-based craft business selling custom beads, acrylic focals, bows, charms, and colourful craft supplies through TikTok Live sales, with selected international shipping.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#F1A1B4">
   <title>Bead Buddies | Bead & Craft Haven</title>
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Bead Buddies">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bead Buddies | Bead & Craft Haven">
-  <meta property="og:description" content="Custom beads, bracelets, necklaces, acrylic focals, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
+  <meta property="og:description" content="Custom beads, acrylic focals, bows, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta property="og:url" content="https://www.beadbuddies.com.au/">
   <meta property="og:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="Bead Buddies pastel bead and craft preview">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bead Buddies | Bead & Craft Haven">
-  <meta name="twitter:description" content="Custom beads, bracelets, necklaces, acrylic focals, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
+  <meta name="twitter:description" content="Custom beads, acrylic focals, bows, charms, and colourful craft supplies claimed during Bead Buddies TikTok Lives, with selected international shipping.">
   <meta name="twitter:image" content="https://www.beadbuddies.com.au/assets/social-share.png">
   <script type="application/ld+json">
     {
@@ -29,7 +29,7 @@
       "@type": "Store",
       "name": "Bead Buddies",
       "url": "https://www.beadbuddies.com.au/",
-      "description": "Australian TikTok Live bead, bracelet, necklace, acrylic focal, charm, and colourful craft supply sales with selected international shipping.",
+      "description": "Australian TikTok Live bead, acrylic focal, bow, charm, and colourful craft supply sales with selected international shipping.",
       "areaServed": [
         {
           "@type": "Country",
@@ -807,15 +807,23 @@
     }
 
     .showcase-grid {
+      --showcase-gap: clamp(0.85rem, 2.8vw, 1.25rem);
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(0.85rem, 2.8vw, 1.25rem);
+      gap: var(--showcase-gap);
       align-items: stretch;
+    }
+
+    .showcase-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      width: calc((100% - var(--showcase-gap)) / 2);
+      justify-self: center;
     }
 
     .showcase-card {
       position: relative;
       overflow: hidden;
+      margin: 0;
       min-height: clamp(238px, 58vw, 390px);
       border: 3px solid transparent;
       border-radius: var(--radius-md);
@@ -1456,7 +1464,21 @@
 
     @media (min-width: 760px) {
       .showcase-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .showcase-card {
+        grid-column: span 2;
+      }
+
+      .showcase-card:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+
+      .showcase-card:last-child:nth-child(odd) {
+        grid-column: 4 / span 2;
+        width: auto;
+        justify-self: stretch;
       }
 
       .steps-grid,
@@ -1485,6 +1507,20 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 1120px) {
+      .showcase-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .showcase-card,
+      .showcase-card:nth-child(4),
+      .showcase-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: auto;
+        justify-self: stretch;
       }
     }
 
@@ -1664,7 +1700,7 @@
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> TikTok Live claims for colourful craft lovers</span>
             <h1 id="hero-title">Your Go-To Bead & Craft Haven!</h1>
             <p class="hero-copy">
-              Custom beads, bracelets, necklaces, acrylic focals, charms, and colourful craft supplies are claimed <strong>exclusively during Bead Buddies TikTok Lives</strong>. Jump in live, call your favourites, then use the payment hub below to secure your basket.
+              Custom beads, acrylic focals, bows, charms, and colourful craft supplies are claimed <strong>exclusively during Bead Buddies TikTok Lives</strong>. Jump in live, call your favourites, then use the payment hub below to secure your basket.
             </p>
             <div class="hero-actions">
               <div class="hero-cta-stack">
@@ -1697,7 +1733,7 @@
             </div>
           </div>
 
-          <figure class="hero-media" aria-label="A Bead Buddies live sale preview video surrounded by examples of colourful beads, bracelets, necklaces, and acrylic focals">
+          <figure class="hero-media" aria-label="A Bead Buddies live sale preview video surrounded by examples of glitter beads, swirl beads, bubble focals, and character-print beads">
             <span class="star one" aria-hidden="true"></span>
             <span class="star two" aria-hidden="true"></span>
             <span class="star three" aria-hidden="true"></span>
@@ -1709,20 +1745,20 @@
             </div>
             <div class="hero-goodies" aria-hidden="true">
               <div class="hero-goodie-card one">
-                <img src="assets/pastel-bead-mix.webp" alt="">
-                <span>Bead mixes</span>
+                <img src="assets/glitter-round-beads-cartoon.webp" alt="">
+                <span>Glitter beads</span>
               </div>
               <div class="hero-goodie-card two">
-                <img src="assets/acrylic-focal-collection.webp" alt="">
-                <span>Acrylic focals</span>
+                <img src="assets/swirl-beads-cartoon.webp" alt="">
+                <span>Swirl beads</span>
               </div>
               <div class="hero-goodie-card three">
-                <img src="assets/smiley-creature-bracelets.webp" alt="">
-                <span>Bracelet stacks</span>
+                <img src="assets/bubble-cluster-focals-cartoon.webp" alt="">
+                <span>Bubble focals</span>
               </div>
               <div class="hero-goodie-card four">
-                <img src="assets/playful-creature-necklace.webp" alt="">
-                <span>Playful necklaces</span>
+                <img src="assets/character-print-beads-cartoon.webp" alt="">
+                <span>Character beads</span>
               </div>
             </div>
             <span class="hero-floating-label"><span class="sparkle" aria-hidden="true"></span> Fresh drops, claimed live</span>
@@ -1772,13 +1808,13 @@
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Tiny treasures, big personality</span>
             <h2 id="lookbook-title">What pops up on the live</h2>
-            <p>Beads, bracelets, necklaces, focals, charms, and glossy pastel bits you might spot in a Bead Buddies basket.</p>
+            <p>Glitter beads, swirl beads, bubble focals, bows, character prints, and glossy colourful bits you might spot in a Bead Buddies basket.</p>
           </div>
 
           <div class="showcase-grid">
             <figure class="showcase-card" style="--tilt: -2deg; --card-bg: #ffe1ea; --pop: #e76f95; --pop-soft: rgba(231, 111, 149, 0.24); --glow: rgba(231, 111, 149, 0.25);">
               <div class="photo-stage">
-                <img src="assets/pastel-bead-mix.webp" alt="A colourful assortment of pastel acrylic beads and focals arranged for a Bead Buddies live sale" loading="lazy">
+                <img src="assets/glitter-round-beads-cartoon.webp" alt="A colourful collection of glossy round glitter beads in a cream scalloped tray" loading="lazy">
                 <div class="fallback-art art-pink" aria-hidden="true">
                   <span class="art-charm"></span>
                 </div>
@@ -1787,7 +1823,7 @@
 
             <figure class="showcase-card" style="--tilt: 1.8deg; --card-bg: #e8ddff; --pop: #9f77df; --pop-soft: rgba(159, 119, 223, 0.23); --glow: rgba(159, 119, 223, 0.25);">
               <div class="photo-stage">
-                <img src="assets/acrylic-focal-collection.webp" alt="A boutique collection of glossy acrylic flower, heart, star, and rainbow focals" loading="lazy">
+                <img src="assets/swirl-beads-cartoon.webp" alt="Eight large colourful beads with painted spiral and stripe patterns" loading="lazy">
                 <div class="fallback-art art-green" aria-hidden="true">
                   <span class="art-charm"></span>
                 </div>
@@ -1796,7 +1832,7 @@
 
             <figure class="showcase-card" style="--tilt: -1.4deg; --card-bg: #dcf8ef; --pop: #4fbfa3; --pop-soft: rgba(79, 191, 163, 0.23); --glow: rgba(79, 191, 163, 0.25);">
               <div class="photo-stage">
-                <img src="assets/smiley-creature-bracelets.webp" alt="A colourful stack of pastel bead bracelets with smiley, animal, flower, heart, star, and original creature beads" loading="lazy">
+                <img src="assets/bubble-cluster-focals-cartoon.webp" alt="Colourful bubble-cluster bead focals arranged on a pink scalloped tray" loading="lazy">
                 <div class="fallback-art art-green" aria-hidden="true">
                   <span class="art-charm"></span>
                 </div>
@@ -1805,8 +1841,17 @@
 
             <figure class="showcase-card" style="--tilt: 1.6deg; --card-bg: #fff0c7; --pop: #f4bd45; --pop-soft: rgba(244, 189, 69, 0.24); --glow: rgba(244, 189, 69, 0.26);">
               <div class="photo-stage">
-                <img src="assets/playful-creature-necklace.webp" alt="A pastel beaded necklace with smiley, animal, flower, fruit, and original fantasy creature beads" loading="lazy">
+                <img src="assets/candy-bow-focals-cartoon.webp" alt="Five colourful candy-themed bow and resin focal sets" loading="lazy">
                 <div class="fallback-art art-pink" aria-hidden="true">
+                  <span class="art-charm"></span>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="showcase-card" style="--tilt: -1.1deg; --card-bg: #eee2ff; --pop: #9c75d7; --pop-soft: rgba(156, 117, 215, 0.24); --glow: rgba(156, 117, 215, 0.25);">
+              <div class="photo-stage">
+                <img src="assets/character-print-beads-cartoon.webp" alt="A glossy collection of pearly white character-print beads with an iridescent finish" loading="lazy">
+                <div class="fallback-art art-green" aria-hidden="true">
                   <span class="art-charm"></span>
                 </div>
               </div>
