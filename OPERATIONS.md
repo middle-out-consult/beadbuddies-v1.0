@@ -34,10 +34,31 @@ Helen or an authorised Square team member must:
 
 Afterpay Online was publicly verified on the deposit checkout on 13 July 2026. The checkout displayed four instalments of $3.50. No payment was submitted during verification.
 
+The default `Square invoice` template was updated and reopened for verification on 3 August 2026. Its saved state is:
+
+- Message: `Claiming during a TikTok Live forms a sales agreement. Once the Live has ended, claims cannot be changed or cancelled for change of mind. This does not limit your rights under Australian Consumer Law.`
+- Schedule: send immediately; due in 3 days.
+- Accepted methods: credit/debit on; Afterpay on; gift card off.
+- Square shipping: off. Postage is entered manually in each personalised invoice.
+
 The former generic balance link (`https://square.link/u/p8mzgLtx`) is no longer published on the website. Deactivate it in Square once no existing customer still needs it.
 
 ## PayPal
 
-PayPal is not connected to the current Square checkout links. A PayPal Business payment link or PayPal Invoicing workflow would be a separate payment route and must use a Helen-owned PayPal Business account.
+PayPal is separate from the Square checkout links. The verified Bead Buddies invoice-payment link is:
 
-Do not add PayPal branding to the public website until the PayPal account, payment destination and live payment link have been verified.
+- PayPal invoice payment: `https://www.paypal.com/ncp/payment/P6JNAU2EK9F5N`
+
+The website publishes this link from `SITE_CONFIG.paypalUrl` near the top of `index.html`.
+
+The Helen-owned PayPal Business Payment Link was created and publicly verified on 3 August 2026 with:
+
+- customer-entered amount in AUD;
+- title `Bead Buddies Invoice Payment`;
+- instructions to enter the exact final invoice total;
+- required customer full name;
+- required Square invoice number;
+- no delivery address, delivery fee, handling fee or tax added by PayPal;
+- checkout methods shown by PayPal included PayPal, Pay in 4, Apple Pay and debit/credit card at verification time.
+
+After a customer pays through PayPal, Helen must match the payment to the Square invoice and mark that invoice as paid externally. The $14 first-shopper deposit remains on Square. Do not add postage again in PayPal because the customer enters the complete final total from their personalised Square invoice.

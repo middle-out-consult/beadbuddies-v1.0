@@ -44,7 +44,7 @@
         "https://www.tiktok.com/@beadbuddies8",
         "https://www.instagram.com/bead.buddies4/"
       ],
-      "paymentAccepted": "Square, Afterpay",
+      "paymentAccepted": "Square, Afterpay, PayPal",
       "currenciesAccepted": "AUD"
     }
   </script>
@@ -53,6 +53,7 @@
       tiktokUrl: "https://www.tiktok.com/@beadbuddies8",
       instagramUrl: "https://www.instagram.com/bead.buddies4/",
       depositUrl: "https://square.link/u/egRTioGV",
+      paypalUrl: "https://www.paypal.com/ncp/payment/P6JNAU2EK9F5N",
       isLiveDefault: false,
       shippingText: "Shipping is available to Australia, New Zealand, and selected international destinations. Postage is calculated for your location and added to your Square invoice.",
       invoiceWindowText: "Invoices are payable in full within 3 days unless otherwise arranged. Unpaid baskets return to live stock after the payment window.",
@@ -1124,6 +1125,10 @@
       background: rgba(255, 255, 255, 0.94);
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     .payment-card h3 {
       position: relative;
       z-index: 1;
@@ -1226,6 +1231,40 @@
 
     .payment-card .afterpay-line {
       margin: 0.9rem 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .payment-card--paypal {
+      --accent: rgba(0, 112, 186, 0.16);
+      border-color: #16325c;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(228, 243, 255, 0.96));
+    }
+
+    .payment-card--paypal h3 {
+      max-width: none;
+    }
+
+    .payment-card--paypal .price-chip {
+      background: #fce181;
+    }
+
+    .button-paypal {
+      border-color: #16325c;
+      background: #0070ba;
+      color: #ffffff;
+      box-shadow: 0 6px 0 #16325c;
+    }
+
+    .button-paypal:hover {
+      background: #005ea6;
+    }
+
+    .paypal-note {
+      position: relative;
+      z-index: 1;
+      margin: 0.9rem 0 0 !important;
       color: var(--muted);
       font-size: 0.84rem;
     }
@@ -1488,6 +1527,14 @@
 
       .payment-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .payment-card--paypal {
+        grid-column: 1 / -1;
+      }
+
+      .payment-card--paypal .button {
+        max-width: 380px;
       }
 
       .terms-list {
@@ -1913,12 +1960,12 @@
           <div class="section-header">
             <span class="eyebrow"><span class="sparkle" aria-hidden="true"></span> Payment Hub</span>
             <h2 id="payments-title">Secure your basket, then pay by invoice</h2>
-            <p>New shoppers can pay the once-only deposit here. Final balances are paid from the personalised Square invoice sent directly to you.</p>
+            <p data-payment-intro>New shoppers can pay the once-only deposit here. Final balances are paid from the personalised Square invoice sent directly to you.</p>
           </div>
 
           <div class="payment-assurance" role="note" aria-label="How payments are processed">
             <span class="payment-assurance-mark" aria-hidden="true">$</span>
-            <p><strong>Payments are securely handled by Square.</strong> The deposit button opens Bead Buddies' Square checkout, while your final payment is made from your personalised Square invoice. This website never stores card details or holds customer funds.</p>
+            <p><strong data-payment-assurance-title>Payments are securely handled by Square.</strong> <span data-payment-assurance-detail>The deposit button opens Bead Buddies' Square checkout, while your final payment is made from your personalised Square invoice. This website never stores card details or holds customer funds.</span></p>
           </div>
 
           <div class="payment-grid">
@@ -1953,6 +2000,26 @@
                 <span>Your payment button is inside the Square invoice sent directly to you.</span>
               </div>
               <p class="afterpay-line"><strong>Afterpay</strong> is available on eligible Square invoices.</p>
+            </article>
+
+            <article class="payment-card payment-card--paypal" data-paypal-section hidden>
+              <span class="price-chip">Alternative Invoice Payment</span>
+              <h3>Pay Invoice with PayPal</h3>
+              <p>Prefer PayPal? Use the exact final total Bead Buddies has given you, then complete the required name and Square invoice number fields so your payment can be matched correctly.</p>
+              <ol class="invoice-guide">
+                <li><span>Check the final total on your personalised Square invoice.</span></li>
+                <li><span>Open PayPal and enter that exact amount in Australian dollars.</span></li>
+                <li><span>Enter your full name and Square invoice number in the required fields.</span></li>
+              </ol>
+              <a class="button button-paypal" href="#" data-config-url="paypalUrl" target="_blank" rel="noopener noreferrer" aria-label="Pay your Bead Buddies invoice with PayPal">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                  <path d="M3 10h18"></path>
+                  <path d="M7 15h4"></path>
+                </svg>
+                Pay Invoice with PayPal
+              </a>
+              <p class="paypal-note"><strong>PayPal is separate from Square.</strong> Bead Buddies will match your payment and mark the Square invoice as paid.</p>
             </article>
           </div>
 
@@ -1994,10 +2061,11 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <div class="payment-logos" aria-label="Accepted payments through Square">
+          <div class="payment-logos" aria-label="Accepted payment methods">
             <span class="payment-badge">Visa</span>
             <span class="payment-badge">Mastercard</span>
             <span class="payment-badge">Afterpay</span>
+            <span class="payment-badge" data-paypal-section hidden>PayPal</span>
             <span class="payment-badge">Square</span>
           </div>
           <span>&copy; <span id="year">2026</span> Bead Buddies. All rights reserved.</span>
@@ -2009,12 +2077,51 @@
   <script>
     const siteConfig = window.SITE_CONFIG || {};
 
+    function isVerifiedPayPalUrl(value) {
+      if (typeof value !== "string" || !value.trim()) return false;
+
+      try {
+        const url = new URL(value.trim());
+        const hostname = url.hostname.toLowerCase();
+        const isPayPalHost = hostname === "paypal.me" || hostname === "paypal.com" || hostname.endsWith(".paypal.com");
+        return url.protocol === "https:" && isPayPalHost;
+      } catch {
+        return false;
+      }
+    }
+
+    const paypalEnabled = isVerifiedPayPalUrl(siteConfig.paypalUrl);
+
     document.querySelectorAll("[data-config-url]").forEach((link) => {
       const key = link.getAttribute("data-config-url");
+      if (key === "paypalUrl") {
+        if (paypalEnabled) link.href = siteConfig.paypalUrl.trim();
+        return;
+      }
       if (key && siteConfig[key]) {
         link.href = siteConfig[key];
       }
     });
+
+    if (paypalEnabled) {
+      document.querySelectorAll("[data-paypal-section]").forEach((node) => {
+        node.hidden = false;
+      });
+
+      const paymentIntro = document.querySelector("[data-payment-intro]");
+      const assuranceTitle = document.querySelector("[data-payment-assurance-title]");
+      const assuranceDetail = document.querySelector("[data-payment-assurance-detail]");
+
+      if (paymentIntro) {
+        paymentIntro.textContent = "New shoppers can pay the once-only deposit here. Final balances can be paid from the personalised Square invoice or through the PayPal option below.";
+      }
+      if (assuranceTitle) {
+        assuranceTitle.textContent = "Payments are securely handled by Square or PayPal.";
+      }
+      if (assuranceDetail) {
+        assuranceDetail.textContent = "The deposit opens Bead Buddies' Square checkout. Final invoice balances can be paid through Square or the separate PayPal link. This website never stores card details or holds customer funds.";
+      }
+    }
 
     document.querySelectorAll("[data-config-text]").forEach((node) => {
       const key = node.getAttribute("data-config-text");
